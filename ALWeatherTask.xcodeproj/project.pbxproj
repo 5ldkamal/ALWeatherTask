@@ -17,6 +17,23 @@
 		8B0B3B642424290E006C73AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B0B3B622424290E006C73AE /* LaunchScreen.storyboard */; };
 		8B0B3B6F2424290F006C73AE /* ALWeatherTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0B3B6E2424290F006C73AE /* ALWeatherTaskTests.swift */; };
 		8B0B3B7A2424290F006C73AE /* ALWeatherTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0B3B792424290F006C73AE /* ALWeatherTaskUITests.swift */; };
+		8B30DF6424252C54003CBBF3 /* KKResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30DF5D24252C53003CBBF3 /* KKResult.swift */; };
+		8B30DF6624252C54003CBBF3 /* KKResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30DF5F24252C53003CBBF3 /* KKResponseHandler.swift */; };
+		8B30DF6724252C54003CBBF3 /* KKResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30DF6024252C53003CBBF3 /* KKResponseProtocol.swift */; };
+		8B30DF6824252C54003CBBF3 /* KKHttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30DF6124252C53003CBBF3 /* KKHttpMethod.swift */; };
+		8B30DF6924252C54003CBBF3 /* KKRequstBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30DF6224252C53003CBBF3 /* KKRequstBuilderProtocol.swift */; };
+		8B30DF6A24252C54003CBBF3 /* KKError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30DF6324252C54003CBBF3 /* KKError.swift */; };
+		8B30DF6C24253234003CBBF3 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30DF6B24253234003CBBF3 /* Api.swift */; };
+		8B30DF6E24253289003CBBF3 /* KKRequstBuilderProtocol+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30DF6D24253289003CBBF3 /* KKRequstBuilderProtocol+Extension.swift */; };
+		8B30DF7124253DCC003CBBF3 /* ALWeatherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30DF7024253DCC003CBBF3 /* ALWeatherController.swift */; };
+		8B30DF7424254170003CBBF3 /* WeatherReponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30DF7324254170003CBBF3 /* WeatherReponseModel.swift */; };
+		8B30DFC424254EB4003CBBF3 /* KKLocationManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30DFC124254EB4003CBBF3 /* KKLocationManger.swift */; };
+		8B30DFC524254EB4003CBBF3 /* KKLocationAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30DFC224254EB4003CBBF3 /* KKLocationAuthorization.swift */; };
+		8B30DFC624254EB4003CBBF3 /* KKLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30DFC324254EB4003CBBF3 /* KKLocationProvider.swift */; };
+		8B30DFC824255399003CBBF3 /* ALWLocationManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30DFC724255399003CBBF3 /* ALWLocationManger.swift */; };
+		8B30DFCA24257406003CBBF3 /* CoreDataStackImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30DFC924257406003CBBF3 /* CoreDataStackImp.swift */; };
+		8B30DFCD24258175003CBBF3 /* Weather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B30DFCB24258175003CBBF3 /* Weather.xcdatamodeld */; };
+		8B30DFCF242581B8003CBBF3 /* ALWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30DFCE242581B8003CBBF3 /* ALWeatherModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +67,23 @@
 		8B0B3B752424290F006C73AE /* ALWeatherTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ALWeatherTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B0B3B792424290F006C73AE /* ALWeatherTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALWeatherTaskUITests.swift; sourceTree = "<group>"; };
 		8B0B3B7B2424290F006C73AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B30DF5D24252C53003CBBF3 /* KKResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KKResult.swift; sourceTree = "<group>"; };
+		8B30DF5F24252C53003CBBF3 /* KKResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KKResponseHandler.swift; sourceTree = "<group>"; };
+		8B30DF6024252C53003CBBF3 /* KKResponseProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KKResponseProtocol.swift; sourceTree = "<group>"; };
+		8B30DF6124252C53003CBBF3 /* KKHttpMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KKHttpMethod.swift; sourceTree = "<group>"; };
+		8B30DF6224252C53003CBBF3 /* KKRequstBuilderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KKRequstBuilderProtocol.swift; sourceTree = "<group>"; };
+		8B30DF6324252C54003CBBF3 /* KKError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KKError.swift; sourceTree = "<group>"; };
+		8B30DF6B24253234003CBBF3 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		8B30DF6D24253289003CBBF3 /* KKRequstBuilderProtocol+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KKRequstBuilderProtocol+Extension.swift"; sourceTree = "<group>"; };
+		8B30DF7024253DCC003CBBF3 /* ALWeatherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALWeatherController.swift; sourceTree = "<group>"; };
+		8B30DF7324254170003CBBF3 /* WeatherReponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherReponseModel.swift; sourceTree = "<group>"; };
+		8B30DFC124254EB4003CBBF3 /* KKLocationManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KKLocationManger.swift; sourceTree = "<group>"; };
+		8B30DFC224254EB4003CBBF3 /* KKLocationAuthorization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KKLocationAuthorization.swift; sourceTree = "<group>"; };
+		8B30DFC324254EB4003CBBF3 /* KKLocationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KKLocationProvider.swift; sourceTree = "<group>"; };
+		8B30DFC724255399003CBBF3 /* ALWLocationManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALWLocationManger.swift; sourceTree = "<group>"; };
+		8B30DFC924257406003CBBF3 /* CoreDataStackImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackImp.swift; sourceTree = "<group>"; };
+		8B30DFCC24258175003CBBF3 /* Weather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Weather.xcdatamodel; sourceTree = "<group>"; };
+		8B30DFCE242581B8003CBBF3 /* ALWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALWeatherModel.swift; sourceTree = "<group>"; };
 		A82E96B1A1351FB2F8B7EFC7 /* Pods_ALWeatherTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ALWeatherTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2D41FA2F36D517C65791DAE /* Pods-ALWeatherTask-ALWeatherTaskUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ALWeatherTask-ALWeatherTaskUITests.debug.xcconfig"; path = "Target Support Files/Pods-ALWeatherTask-ALWeatherTaskUITests/Pods-ALWeatherTask-ALWeatherTaskUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C10EF22B4AC6941294105FA4 /* Pods_ALWeatherTask_ALWeatherTaskUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ALWeatherTask_ALWeatherTaskUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,7 +133,6 @@
 				F4C7846EEEBEA286BED1759E /* Pods-ALWeatherTaskTests.debug.xcconfig */,
 				C34660BD8174AE49092F872F /* Pods-ALWeatherTaskTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -182,6 +215,7 @@
 		8B0B3B8824242F3F006C73AE /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				8B30DF7224254167003CBBF3 /* Model */,
 				8B0B3B8F24242FA3006C73AE /* Repository */,
 				8B0B3B8E24242F8E006C73AE /* LocalStorage */,
 				8B0B3B8D24242F86006C73AE /* Network */,
@@ -192,6 +226,7 @@
 		8B0B3B8924242F47006C73AE /* Scence */ = {
 			isa = PBXGroup;
 			children = (
+				8B30DF6F24253DAE003CBBF3 /* Weather */,
 			);
 			path = Scence;
 			sourceTree = "<group>";
@@ -213,6 +248,7 @@
 		8B0B3B8C24242F6A006C73AE /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				8B30DF7524254888003CBBF3 /* Location */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -220,6 +256,9 @@
 		8B0B3B8D24242F86006C73AE /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				8B30DF5C24252C39003CBBF3 /* Builder */,
+				8B30DF6B24253234003CBBF3 /* Api.swift */,
+				8B30DF6D24253289003CBBF3 /* KKRequstBuilderProtocol+Extension.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -227,6 +266,8 @@
 		8B0B3B8E24242F8E006C73AE /* LocalStorage */ = {
 			isa = PBXGroup;
 			children = (
+				8B30DFC924257406003CBBF3 /* CoreDataStackImp.swift */,
+				8B30DFCB24258175003CBBF3 /* Weather.xcdatamodeld */,
 			);
 			path = LocalStorage;
 			sourceTree = "<group>";
@@ -236,6 +277,47 @@
 			children = (
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		8B30DF5C24252C39003CBBF3 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				8B30DF6224252C53003CBBF3 /* KKRequstBuilderProtocol.swift */,
+				8B30DF6124252C53003CBBF3 /* KKHttpMethod.swift */,
+				8B30DF6324252C54003CBBF3 /* KKError.swift */,
+				8B30DF5D24252C53003CBBF3 /* KKResult.swift */,
+				8B30DF6024252C53003CBBF3 /* KKResponseProtocol.swift */,
+				8B30DF5F24252C53003CBBF3 /* KKResponseHandler.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		8B30DF6F24253DAE003CBBF3 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				8B30DF7024253DCC003CBBF3 /* ALWeatherController.swift */,
+				8B30DFC724255399003CBBF3 /* ALWLocationManger.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		8B30DF7224254167003CBBF3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B30DF7324254170003CBBF3 /* WeatherReponseModel.swift */,
+				8B30DFCE242581B8003CBBF3 /* ALWeatherModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8B30DF7524254888003CBBF3 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				8B30DFC224254EB4003CBBF3 /* KKLocationAuthorization.swift */,
+				8B30DFC124254EB4003CBBF3 /* KKLocationManger.swift */,
+				8B30DFC324254EB4003CBBF3 /* KKLocationProvider.swift */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -442,7 +524,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B0B3B582424290C006C73AE /* AppDelegate.swift in Sources */,
+				8B30DF6824252C54003CBBF3 /* KKHttpMethod.swift in Sources */,
+				8B30DF6924252C54003CBBF3 /* KKRequstBuilderProtocol.swift in Sources */,
+				8B30DFCA24257406003CBBF3 /* CoreDataStackImp.swift in Sources */,
+				8B30DF6724252C54003CBBF3 /* KKResponseProtocol.swift in Sources */,
+				8B30DFC524254EB4003CBBF3 /* KKLocationAuthorization.swift in Sources */,
+				8B30DFCD24258175003CBBF3 /* Weather.xcdatamodeld in Sources */,
 				8B0B3B5A2424290C006C73AE /* SceneDelegate.swift in Sources */,
+				8B30DF7424254170003CBBF3 /* WeatherReponseModel.swift in Sources */,
+				8B30DF6424252C54003CBBF3 /* KKResult.swift in Sources */,
+				8B30DF6A24252C54003CBBF3 /* KKError.swift in Sources */,
+				8B30DFCF242581B8003CBBF3 /* ALWeatherModel.swift in Sources */,
+				8B30DFC824255399003CBBF3 /* ALWLocationManger.swift in Sources */,
+				8B30DF6C24253234003CBBF3 /* Api.swift in Sources */,
+				8B30DF7124253DCC003CBBF3 /* ALWeatherController.swift in Sources */,
+				8B30DFC624254EB4003CBBF3 /* KKLocationProvider.swift in Sources */,
+				8B30DF6624252C54003CBBF3 /* KKResponseHandler.swift in Sources */,
+				8B30DF6E24253289003CBBF3 /* KKRequstBuilderProtocol+Extension.swift in Sources */,
+				8B30DFC424254EB4003CBBF3 /* KKLocationManger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,6 +870,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8B30DFCB24258175003CBBF3 /* Weather.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8B30DFCC24258175003CBBF3 /* Weather.xcdatamodel */,
+			);
+			currentVersion = 8B30DFCC24258175003CBBF3 /* Weather.xcdatamodel */;
+			path = Weather.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8B0B3B4C2424290C006C73AE /* Project object */;
 }
