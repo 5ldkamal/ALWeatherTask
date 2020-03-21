@@ -16,7 +16,7 @@ public protocol KAppCoordinatorProtocol {
     func start()
 }
 
-class KAppCoordinator: KAppCoordinatorProtocol {
+final class AppCoordinator: KAppCoordinatorProtocol {
     private let coordinate: Coordination
     private let window: UIWindow
     init(coordinate: Coordination, window: UIWindow) {
@@ -27,7 +27,7 @@ class KAppCoordinator: KAppCoordinatorProtocol {
     func start() {
         switch coordinate {
         case .weather:
-            let main = KMainRouter(window: window)
+            let main = MainRouter(window: window)
             main.trigger(destaintion: .main)
         }
     }

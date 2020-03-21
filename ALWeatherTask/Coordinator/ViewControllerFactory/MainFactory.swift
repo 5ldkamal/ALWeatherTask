@@ -13,7 +13,7 @@ protocol MainFactoryProtocol: class {
     func details(_ model: ALWeatherModel) -> ALWeatherDetailsController
 }
 
-class KMainFactory: MainFactoryProtocol {
+class MainFactory: MainFactoryProtocol {
     let coordinator: KMainRouter
     init(coordinator: KMainRouter) {
         self.coordinator = coordinator

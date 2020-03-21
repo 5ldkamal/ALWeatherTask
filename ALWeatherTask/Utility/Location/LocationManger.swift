@@ -9,26 +9,25 @@
 import CoreLocation
 import UIKit
 
-protocol KKLocationManger: class {
+protocol LocationManger: class {
     var authorizationStatus: CLAuthorizationStatus { get }
-    
     var delegate: KKLocationMangerDelegate? { get set }
     var authorizedDelegate: KKLocationMangerAuthorizationDelegate? { get set }
-    
+    ///Methods
     func requestWhenInUseAuthorization()
     func stopUpdatingLocation()
     func startUpdatingLocation()
 }
 
 protocol KKLocationMangerDelegate: class {
-    func locationManager(_ manager: KKLocationManger, didUpdateLocations locations: [CLLocation])
+    func locationManager(_ manager: LocationManger, didUpdateLocations locations: [CLLocation])
 }
 
 protocol KKLocationMangerAuthorizationDelegate: class {
-    func locationManager(_ manager: KKLocationManger, didChangeAuthorization status: CLAuthorizationStatus)
+    func locationManager(_ manager: LocationManger, didChangeAuthorization status: CLAuthorizationStatus)
 }
 
-class KKLocationMangerProxy: NSObject {
+class LocationMangerProxy: NSObject {
     weak var delegate: KKLocationMangerDelegate?
     weak var authorizedDelegate: KKLocationMangerAuthorizationDelegate?
     
@@ -40,7 +39,7 @@ class KKLocationMangerProxy: NSObject {
     }
 }
 
-extension KKLocationMangerProxy: KKLocationManger {
+extension LocationMangerProxy: LocationManger {
     var authorizationStatus: CLAuthorizationStatus {
         return CLLocationManager.authorizationStatus()
     }
@@ -58,14 +57,14 @@ extension KKLocationMangerProxy: KKLocationManger {
     }
 }
 
-extension KKLocationMangerProxy: CLLocationManagerDelegate
+extension LocationMangerProxy: CLLocationManagerDelegate
 {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         delegate?.locationManager(self, didUpdateLocations: locations)
     }
 }
 
-extension KKLocationMangerProxy
+extension LocationMangerProxy
 {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         authorizedDelegate?.locationManager(self, didChangeAuthorization: status)
