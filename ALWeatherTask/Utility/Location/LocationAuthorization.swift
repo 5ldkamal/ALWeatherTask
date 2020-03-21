@@ -33,8 +33,7 @@ final class DefaultLocationAuthorization: NSObject {
     }
 }
 
-extension DefaultLocationAuthorization: LocationAuthorization
-{
+extension DefaultLocationAuthorization: LocationAuthorization {
     func askForAuthorization() {
         switch location.authorizationStatus {
         case .notDetermined:
@@ -44,16 +43,15 @@ extension DefaultLocationAuthorization: LocationAuthorization
     }
 }
 
-extension DefaultLocationAuthorization: KKLocationMangerAuthorizationDelegate
-{
-    private func NotifyForAuthorizatin() {
+extension DefaultLocationAuthorization: KKLocationMangerAuthorizationDelegate {
+    private func notifyForAuthorizatin() {
         NotificationCenter.default.post(name: .UpdateLocation, object: self)
     }
 
     func locationManager(_: LocationManger, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
-            NotifyForAuthorizatin()
+            notifyForAuthorizatin()
 
         case .denied, .restricted:
             delegate?.locationAuthorizationDenied(for: self)

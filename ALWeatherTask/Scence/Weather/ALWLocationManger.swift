@@ -42,8 +42,7 @@ final class ALWLocationManger: NSObject {
     }
 }
 
-extension ALWLocationManger: BLocationRepoProtocol
-{
+extension ALWLocationManger: BLocationRepoProtocol {
     func getLocation() {
         locationProvider.getLocation()
     }
@@ -51,15 +50,13 @@ extension ALWLocationManger: BLocationRepoProtocol
 
 // MARK: - HandleLocaiton
 
-extension ALWLocationManger: LocationProviderDelegate
-{
+extension ALWLocationManger: LocationProviderDelegate {
     func locationProvider(_ location: CLLocationCoordinate2D) {
         delegate?.location(location)
     }
 }
 
-extension ALWLocationManger: LocationAuthorizationDelegate
-{
+extension ALWLocationManger: LocationAuthorizationDelegate {
     func locationAuthorizationDenied(for _: LocationAuthorization) {
         delegate?.locationFailed()
     }

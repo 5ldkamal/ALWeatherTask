@@ -8,8 +8,7 @@
 
 import UIKit
 
-public extension Int
-{
+public extension Int {
     var toDouble: Double {
         return Double(self)
     }
@@ -23,16 +22,14 @@ public extension Int
     }
 
     var toTimeStr: String {
-        let s = self
-        let date = Date(timeIntervalSince1970: Double(s) / 1000)
+        let date = Date(timeIntervalSince1970: Double(self) / 1000)
         let formatter = DateFormatter()
         formatter.dateFormat = "HH mm ss SSS"
         return formatter.string(from: date)
     }
 }
 
-extension Double
-{
+extension Double {
     /// To String
     var toString: String {
         return NSString(format: "%.3f", self) as String

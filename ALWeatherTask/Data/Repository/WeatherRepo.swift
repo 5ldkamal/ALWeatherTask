@@ -15,7 +15,7 @@ public protocol WeatherRepoProtocol: class {
     var delegate: WeatherRepoOutPutProtocol? { get set }
     func saveWeather(_ weather: ALWeatherModel)
     func loadLocalWeather()
-    func loadremoteWeather(_ location: CLLocationCoordinate2D)
+    func loadRemoteWeather(_ location: CLLocationCoordinate2D)
 }
 
 // MARK: - Output
@@ -35,7 +35,7 @@ final class WeatherRepo: NSObject, WeatherRepoProtocol {
         self.remote = remote
     }
 
-    func loadremoteWeather(_ location: CLLocationCoordinate2D) {
+    func loadRemoteWeather(_ location: CLLocationCoordinate2D) {
         /// Load from Remote
         remote.fetchWeather(api: Api.currentWeatherByLocation(location)) { [weak self] result in
             guard let self = self else { return }

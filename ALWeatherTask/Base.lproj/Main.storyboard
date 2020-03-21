@@ -64,7 +64,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dateLbl" destination="1za-Gb-nku" id="AVm-5O-dK0"/>
-                                            <outlet property="imageView_" destination="9W7-ab-VLw" id="IMe-Ni-lDZ"/>
+                                            <outlet property="iconImageView" destination="9W7-ab-VLw" id="Syi-SB-sGy"/>
                                             <outlet property="tempLbl" destination="BIW-Vc-u0Y" id="nAm-F2-sok"/>
                                         </connections>
                                     </tableViewCell>

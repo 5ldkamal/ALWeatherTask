@@ -26,16 +26,16 @@ final class MainFactory: MainFactoryProtocol {
         let repo = WeatherRepo(remote: remote, local: local)
         let location = ALWLocationManger()
         let viewModel = ALWeatherViewModel(repo, location: location, router: coordinator)
-        let vc = ALWeatherController.instanceVc()
-        vc.setViewModel(viewModel: viewModel)
-        return vc
+        let viewController = ALWeatherController.instanceVc()
+        viewController.setViewModel(viewModel: viewModel)
+        return viewController
     }
 
     /// Main ViewController
     func details(_ model: ALWeatherModel) -> ALWeatherDetailsController {
-        let vc = ALWeatherDetailsController.instanceVc()
+        let viewController = ALWeatherDetailsController.instanceVc()
         let viewModel = ALWeatherDetailsViewModel(weatherModel: model, router: coordinator)
-        vc.setViewModel(viewModel: viewModel)
-        return vc
+        viewController.setViewModel(viewModel: viewModel)
+        return viewController
     }
 }

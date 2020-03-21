@@ -6,7 +6,6 @@ public enum GenericViewState<D, E: Error>: ViewState {
 }
 
 // Because sometimes we simply want to render that there's been an error, without further details...
-// FIXME: Change name
 public enum GenericViewState2<D>: ViewState {
     case loading(D?)
     case loaded(D)

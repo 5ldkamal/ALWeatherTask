@@ -80,7 +80,7 @@ extension ALWeatherViewModel: WeatherRepoOutPutProtocol {
 
 extension ALWeatherViewModel: BLocationOutRepoDelegate {
     func location(_ location: CLLocationCoordinate2D) {
-        repo.loadremoteWeather(location)
+        repo.loadRemoteWeather(location)
     }
 
     func locationFailed() {
@@ -109,13 +109,12 @@ extension ALWeatherViewModel {
 
     func selectItemForIndex(_ indexPath: IndexPath) {
         let item = itemForIndexPath(indexPath)
-        router.trigger(destaintion: .Details(item))
+        router.trigger(destaintion: .details(item))
     }
 }
 
 ///
-public struct WeatherSection
-{
+public struct WeatherSection {
     let title: String
     let items: [ALWeatherModel]
 }

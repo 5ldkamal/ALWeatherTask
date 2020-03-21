@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 extension UITableView {
     func dequeue<T: UITableViewCell>(indexPath: IndexPath, type: T.Type) -> T {
-        return dequeueReusableCell(withIdentifier: String(describing: type), for: indexPath) as! T
+        return (dequeueReusableCell(withIdentifier: String(describing: type), for: indexPath) as? T)!
     }
 }
 

@@ -57,15 +57,13 @@ extension LocationMangerProxy: LocationManger {
     }
 }
 
-extension LocationMangerProxy: CLLocationManagerDelegate
-{
+extension LocationMangerProxy: CLLocationManagerDelegate {
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         delegate?.locationManager(self, didUpdateLocations: locations)
     }
 }
 
-extension LocationMangerProxy
-{
+extension LocationMangerProxy {
     func locationManager(_: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         authorizedDelegate?.locationManager(self, didChangeAuthorization: status)
     }

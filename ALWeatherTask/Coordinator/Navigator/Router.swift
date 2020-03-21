@@ -74,8 +74,7 @@ extension Naviagator {
     }
 }
 
-extension Naviagator
-{
+extension Naviagator {
     public func present(_ presented: Presentable, animated: Bool, complation: @escaping () -> Void) {
         currentViewController?.present(presented, animated: animated, completion: complation)
     }

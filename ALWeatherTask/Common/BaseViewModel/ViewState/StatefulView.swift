@@ -99,9 +99,7 @@ public class AnyStatefulView<T: ViewState>: StatefulView {
 }
 
 extension AnyStatefulView: Hashable {
-    public var hashValue: Int {
-        return identifier.hashValue
-    }
+    public func hash(into _: inout Hasher) {}
 
     public static func == (lhs: AnyStatefulView, rhs: AnyStatefulView) -> Bool {
         return lhs.identifier == rhs.identifier

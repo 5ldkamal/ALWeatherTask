@@ -9,7 +9,7 @@
 import UIKit
 enum MainDestinationRouter {
     case main
-    case Details(ALWeatherModel)
+    case details(ALWeatherModel)
 }
 
 final class MainRouter: BaseCoordinator<MainDestinationRouter, MainFactoryProtocol> {
@@ -18,7 +18,7 @@ final class MainRouter: BaseCoordinator<MainDestinationRouter, MainFactoryProtoc
     override init(window: UIWindow?) {
         self.window = window
         super.init(window: window)
-        navigationViewController = UIStoryboard.instance(.Main).instantiateViewController(identifier: "MainNav")
+        navigationViewController = UIStoryboard.instance(.main).instantiateViewController(identifier: "MainNav")
         self.window?.rootViewController = navigationViewController
     }
 
@@ -29,7 +29,7 @@ final class MainRouter: BaseCoordinator<MainDestinationRouter, MainFactoryProtoc
     public override func prepareForTransition(_ destination: MainDestinationRouter) {
         switch destination {
         case .main: setRoot(factory()!.main())
-        case let .Details(model): push(factory()!.details(model), animated: true)
+        case let .details(model): push(factory()!.details(model), animated: true)
         }
     }
 }

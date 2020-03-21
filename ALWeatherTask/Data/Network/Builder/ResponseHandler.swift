@@ -13,12 +13,11 @@ public protocol HandleResponseProtocol {
     func handleResponse<T>(_ response: DataResponse, completion: ResponseResult<T>) where T: Codable
 }
 
-final class ResponseHandler: NSObject
-{}
+final class ResponseHandler: NSObject {}
 
 extension ResponseHandler: HandleResponseProtocol {
     public func handleResponse<T>(_ response: DataResponse, completion: ResponseResult<T>) where T: Codable {
-        guard let repoponse_ = response.1 as? HTTPURLResponse else {
+        guard let repoponse = response.1 as? HTTPURLResponse else {
             if let error = response.2 as NSError?, error.code == NSURLErrorNotConnectedToInternet {
                 completion(ResultStatuts<T>.failure(ResultError.noInternt))
             } else {
@@ -27,7 +26,7 @@ extension ResponseHandler: HandleResponseProtocol {
             return
         }
 
-        let status = ResponseStatusCode(repoponse_.statusCode, error: response.2?.localizedDescription)
+        let status = ResponseStatusCode(repoponse.statusCode, error: response.2?.localizedDescription)
         switch status {
         case .success:
 

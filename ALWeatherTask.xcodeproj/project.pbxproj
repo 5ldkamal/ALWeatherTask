@@ -257,7 +257,6 @@
 		8B0B3B6D2424290F006C73AE /* ALWeatherTaskTests */ = {
 			isa = PBXGroup;
 			children = (
-				8B0D7B692426C1F20010DA7C /* Data */,
 				8B0B3B6E2424290F006C73AE /* ALWeatherTaskTests.swift */,
 				8B0B3B702424290F006C73AE /* Info.plist */,
 			);
@@ -415,13 +414,6 @@
 			path = WeatherDetails;
 			sourceTree = "<group>";
 		};
-		8B0D7B692426C1F20010DA7C /* Data */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
 		8B0D7B6A2426C5CE0010DA7C /* ViewState */ = {
 			isa = PBXGroup;
 			children = (
@@ -529,6 +521,7 @@
 				8B0B3B502424290C006C73AE /* Sources */,
 				8B0B3B512424290C006C73AE /* Frameworks */,
 				8B0B3B522424290C006C73AE /* Resources */,
+				8BD2FD252426D0D7003C6A88 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -669,6 +662,24 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8BD2FD252426D0D7003C6A88 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/SwiftLint/swiftlint",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		902A909BB7B282933B5ECA4B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

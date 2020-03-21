@@ -9,26 +9,24 @@
 import UIKit
 
 public enum StoryBoard: String {
-    case Main
+    case main = "Main"
 }
 
-extension UIStoryboard
-{
+extension UIStoryboard {
     static func instance(_ name: StoryBoard) -> Self {
-        return UIStoryboard(name: name.rawValue, bundle: nil) as! Self
+        return (UIStoryboard(name: name.rawValue, bundle: nil) as? Self)!
     }
 }
 
 // MARK: - Instate
 
-extension UIViewController
-{
+extension UIViewController {
     private static var nameOf: String {
         return NSStringFromClass(self).components(separatedBy: ".").last!
     }
 
     private class func instate<T: UIViewController>(_ storyboard: UIStoryboard, identifier: String) -> T {
-        return storyboard.instantiateViewController(withIdentifier: identifier) as! T
+        return (storyboard.instantiateViewController(withIdentifier: identifier) as? T)!
     }
 
     private class func instate(_ storyboard: StoryBoard) -> Self {
@@ -36,21 +34,21 @@ extension UIViewController
         return instate(stb, identifier: nameOf)
     }
 
-    public class func instanceVc(_ sb: StoryBoard = .Main) -> Self {
-        return instate(sb)
+    public class func instanceVc(_ storyboard: StoryBoard = .main) -> Self {
+        return instate(storyboard)
     }
 }
 
 extension UIViewController: StatefulView {
     private func hideSubViews() {
-        for view_ in view.subviews {
-            view_.isHidden = true
+        for view in view.subviews {
+            view.isHidden = true
         }
     }
 
     private func showSubViews() {
-        for view_ in view.subviews {
-            view_.isHidden = false
+        for view in view.subviews {
+            view.isHidden = false
         }
     }
 
@@ -60,10 +58,8 @@ extension UIViewController: StatefulView {
             if status {
                 hideSubViews()
             }
-        /// Loadin activiy
         case .loaded: // Loaded
             showSubViews()
-           /// Hide Loader
 
         case let .error(error, status):
             if status {

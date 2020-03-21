@@ -67,7 +67,7 @@ public final class AlertBuilder {
         guard let view = view else {
             return
         }
-        if alertController.actions.count == 0, addingDefaultAction {
+        if alertController.actions.isEmpty, addingDefaultAction {
             addDefaultAction()
         }
         view.present(alertController, animated: true, completion: completion)

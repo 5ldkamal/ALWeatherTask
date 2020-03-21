@@ -9,24 +9,62 @@
 @testable import ALWeatherTask
 import XCTest
 
-class ALWeatherTaskTests: XCTestCase {
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+final class ALWeatherTaskTests: XCTestCase {
+    var network: WeatherRemoteGetway!
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        network = nil
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testGetDataWithSuccessScenario() {
+        let exp = expectation(description: "Wait for network response")
+        network = SuccessNetworkMock()
+        network.fetchWeather(api: TestApi.weather, completionHandler: { res in
+            switch res {
+            case let .sucess(data):
+                XCTAssertEqual(data.count, 1)
+                exp.fulfill()
+            case .failure:
+                XCTAssert(false)
+            }
+        })
+        wait(for: [exp], timeout: 0.5)
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testDataParsingFailure() {
+        let exp = expectation(description: "Wait for network response")
+        network = FailuerNetworkMock()
+        network.fetchWeather(api: TestApi.weather, completionHandler: { res in
+            switch res {
+            case .sucess:
+                XCTAssert(false)
+            case let .failure(error):
+                XCTAssertEqual(error.describtionError, ResultError.cannotDecodeData.describtionError)
+                exp.fulfill()
+            }
+        })
+        wait(for: [exp], timeout: 0.5)
     }
+}
+
+final class SuccessNetworkMock: WeatherRemoteGetway {
+    let weatherModel = ALWeatherModel(area:
+        ALWArea("", country: "", timezone: 1, lat: 3.3, log: 34.3), weather: ALWweather(WeatherReponseModel(coord: nil, weather: nil, base: .none, main: nil, wind: nil, clouds: nil, dt: nil, sys: nil, timezone: nil, id: nil, name: nil, cod: nil)))
+    func fetchWeather(api _: RequstBuilderProtocol, completionHandler: @escaping (ResultStatuts<[ALWeatherModel]>) -> Void) {
+        completionHandler(.sucess([weatherModel]))
+    }
+}
+
+final class FailuerNetworkMock: WeatherRemoteGetway {
+    func fetchWeather(api _: RequstBuilderProtocol, completionHandler: @escaping (ResultStatuts<[ALWeatherModel]>) -> Void) {
+        completionHandler(.failure(.cannotDecodeData))
+    }
+}
+
+enum TestApi: RequstBuilderProtocol {
+    var path: String {
+        return ""
+    }
+
+    case weather
 }

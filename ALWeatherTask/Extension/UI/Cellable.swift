@@ -15,16 +15,15 @@ public protocol Cellable {
 
 extension Cellable where Self: UIView {
     fileprivate static func instanceFromCollection<T: UICollectionViewCell>(_ collection: UICollectionView, indexPath: IndexPath) -> T {
-        return collection.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! T
+        return (collection.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? T)!
     }
 
     fileprivate static func instanceFromTable<T: UIView>(_ tableView: UITableView) -> T {
-        return tableView.dequeueReusableCell(withIdentifier: identifier) as! T
+        return (tableView.dequeueReusableCell(withIdentifier: identifier) as? T)!
     }
 }
 
-extension UIView: Cellable
-{
+extension UIView: Cellable {
     public static var identifier: String {
         return NSStringFromClass(Self.self).components(separatedBy: ".").last!
     }
@@ -45,4 +44,3 @@ extension UITableViewCell {
         return instanceFromTable(tableView)
     }
 }
-

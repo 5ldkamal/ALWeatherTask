@@ -9,7 +9,7 @@
 import CoreData
 import UIKit
 public protocol CoreDataStack: class {
-    // MARK: -  Properities
+    // MARK: - Properities
 
     var container: NSPersistentContainer { get }
     var context: NSManagedObjectContext { get }

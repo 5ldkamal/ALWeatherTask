@@ -39,27 +39,26 @@ final class KKDefaultLocationProvider: NSObject {
     }
 
     deinit {
+        NotificationCenter.default.removeObserver(self)
         locationManger.stopUpdatingLocation()
     }
 }
 
-extension KKDefaultLocationProvider: LocationProvider
-{
+extension KKDefaultLocationProvider: LocationProvider {
     func getLocation() {
         locationAuthorization.askForAuthorization()
-        NotifyForAuthorizatin()
+        notifyForAuthorizatin()
         locationManger.startUpdatingLocation()
     }
 
-    private func NotifyForAuthorizatin() {
-        NotificationCenter.default.addObserver(forName: .UpdateLocation, object: locationAuthorization, queue: nil) { [weak self] _ in
-            self?.locationManger.startUpdatingLocation()
-        }
+    private func notifyForAuthorizatin() { NotificationCenter.default.addObserver(forName: .UpdateLocation, object: locationAuthorization, queue: nil) { [weak self] _ in
+        guard let self = self else { return }
+        self.locationManger.startUpdatingLocation()
+    }
     }
 }
 
-extension KKDefaultLocationProvider: KKLocationMangerDelegate
-{
+extension KKDefaultLocationProvider: KKLocationMangerDelegate {
     func locationManager(_: LocationManger, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else {
             return

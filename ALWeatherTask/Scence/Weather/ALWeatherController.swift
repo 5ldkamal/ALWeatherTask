@@ -66,8 +66,7 @@ private extension ALWeatherController {
 
 // MARK: - Actions
 
-extension ALWeatherController
-{
+extension ALWeatherController {
     @IBAction func saveAction(_: UIButton) {
         viewModel?.save()
     }

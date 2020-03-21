@@ -6,7 +6,7 @@ target 'ALWeatherTask' do
   use_frameworks!
 
   # Pods for ALWeatherTask
-
+  pod 'SwiftLint'
   target 'ALWeatherTaskTests' do
     inherit! :search_paths
     # Pods for testing

@@ -8,8 +8,7 @@
 
 import Foundation
 
-extension RequstBuilderProtocol
-{
+extension RequstBuilderProtocol {
     var baseUrl: String {
         return "http://api.openweathermap.org/data/2.5/"
     }

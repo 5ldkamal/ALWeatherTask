@@ -30,8 +30,7 @@ public protocol RequstBuilderProtocol: URLRequstProtocol, ResponseProtocol {
     var headers: Headers { get }
 }
 
-extension RequstBuilderProtocol
-{
+extension RequstBuilderProtocol {
     public var urlRequst: URLRequest {
         print(URL(string: baseUrl + path)!)
         var request = URLRequest(url: URL(string: baseUrl + path)!)

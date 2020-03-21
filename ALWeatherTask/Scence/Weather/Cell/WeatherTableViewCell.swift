@@ -9,7 +9,7 @@
 import UIKit
 
 final class WeatherTableViewCell: UITableViewCell {
-    @IBOutlet private var imageView_: UIImageView?
+    @IBOutlet private var iconImageView: UIImageView?
     @IBOutlet private var dateLbl: UILabel?
     @IBOutlet private var tempLbl: UILabel?
 
@@ -37,7 +37,7 @@ final class WeatherTableViewCell: UITableViewCell {
             print(response?.suggestedFilename ?? url.lastPathComponent)
             print("Download Finished")
             DispatchQueue.main.async {
-                self.imageView_?.image = UIImage(data: data)
+                self.iconImageView?.image = UIImage(data: data)
             }
         }
     }
