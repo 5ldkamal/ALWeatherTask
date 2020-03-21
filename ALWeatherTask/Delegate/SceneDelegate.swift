@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.backgroundColor = .white
 
         ///Coordinator
-        let coordinator = KAppCoordinator(coordinate: .weather, window: window!)
+        let coordinator = AppCoordinator(coordinate: .weather, window: window!)
         coordinator.start()
     }
 

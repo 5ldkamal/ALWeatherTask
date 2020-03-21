@@ -9,27 +9,27 @@
 import CoreLocation
 import UIKit
 
-enum KKLocationType {
+enum LocationType {
     case oneShot
     case continous
 }
 
-protocol KKLocationProviderDelegate: class {
+protocol LocationProviderDelegate: class {
     func locationProvider(_ location: CLLocationCoordinate2D)
 }
 
-protocol KKLocationProvider {
-    var deleagte: KKLocationProviderDelegate? { get set }
+protocol LocationProvider {
+    var deleagte: LocationProviderDelegate? { get set }
     func getLocation()
 }
 
-class KKDefaultLocationProvider: NSObject {
-    weak var deleagte: KKLocationProviderDelegate?
-    let locationManger: KKLocationManger
-    let locationAuthorization: KKLocationAuthorization
-    let locationType: KKLocationType
+final class KKDefaultLocationProvider: NSObject {
+    weak var deleagte: LocationProviderDelegate?
+    let locationManger: LocationManger
+    let locationAuthorization: LocationAuthorization
+    let locationType: LocationType
 
-    init(locationManger: KKLocationManger, locationAuthorization: KKLocationAuthorization, locationType: KKLocationType = .oneShot) {
+    init(locationManger: LocationManger, locationAuthorization: LocationAuthorization, locationType: LocationType = .oneShot) {
         self.locationManger = locationManger
         self.locationAuthorization = locationAuthorization
         self.locationType = locationType
@@ -43,7 +43,7 @@ class KKDefaultLocationProvider: NSObject {
     }
 }
 
-extension KKDefaultLocationProvider: KKLocationProvider
+extension KKDefaultLocationProvider: LocationProvider
 {
     func getLocation() {
         locationAuthorization.askForAuthorization()
@@ -60,7 +60,7 @@ extension KKDefaultLocationProvider: KKLocationProvider
 
 extension KKDefaultLocationProvider: KKLocationMangerDelegate
 {
-    func locationManager(_ manager: KKLocationManger, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: LocationManger, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else {
             return
         }

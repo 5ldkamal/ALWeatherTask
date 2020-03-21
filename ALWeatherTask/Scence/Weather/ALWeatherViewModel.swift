@@ -10,7 +10,6 @@ import CoreLocation
 import UIKit
 public protocol ALWeatherViewModelProtocol {
     var currentWeather: Boxing<ALWeatherModel?> { get set }
-    //
     var numberOfSections: Int { get
     }
     var isReloaded: Boxing<Bool> { get set }
@@ -24,15 +23,15 @@ public protocol ALWeatherViewModelProtocol {
     func save()
 }
 
-class ALWeatherViewModel: BaseViewModel, ALWeatherViewModelProtocol {
+final class ALWeatherViewModel: BaseViewModel, ALWeatherViewModelProtocol {
     public var currentWeather: Boxing<ALWeatherModel?> = Boxing(nil)
     public var isReloaded: Boxing<Bool> = Boxing(false)
     public var isSaved: Boxing<State?> = Boxing(nil)
     fileprivate var sections: [WeatherSection] = []
     fileprivate let repo: WeatherRepoProtocol
     fileprivate let location: BLocationRepoProtocol
-    fileprivate let router: KMainRouter
-    init(_ repo: WeatherRepoProtocol, location: BLocationRepoProtocol, router: KMainRouter) {
+    fileprivate let router: MainRouter
+    init(_ repo: WeatherRepoProtocol, location: BLocationRepoProtocol, router: MainRouter) {
         self.repo = repo
         self.location = location
         self.router = router
@@ -44,7 +43,7 @@ class ALWeatherViewModel: BaseViewModel, ALWeatherViewModelProtocol {
     func loadWeather() {
         /// Load Local
         repo.loadLocalWeather()
-        /// get Location
+        /// Get Location
         location.getLocation()
     }
 }
@@ -121,7 +120,6 @@ public struct WeatherSection
     let items: [ALWeatherModel]
 }
 
-///
 public struct State {
     let messge: String
     let state: Bool

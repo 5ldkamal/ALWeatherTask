@@ -9,14 +9,14 @@
 import UIKit
 
 public typealias DataResponse = (Data?, URLResponse?, Error?)
-public protocol KKHandleResponseProtocol {
+public protocol HandleResponseProtocol {
     func handleResponse<T>(_ response: DataResponse, completion: ResponseResult<T>) where T: Codable
 }
 
-open class KKResponseHandler: NSObject
+final class ResponseHandler: NSObject
 {}
 
-extension KKResponseHandler: KKHandleResponseProtocol {
+extension ResponseHandler: HandleResponseProtocol {
     public func handleResponse<T>(_ response: DataResponse, completion: ResponseResult<T>) where T: Codable {
         guard let repoponse_ = response.1 as? HTTPURLResponse else {
             if let error = response.2 as NSError?, error.code == NSURLErrorNotConnectedToInternet {

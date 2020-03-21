@@ -19,7 +19,7 @@ public protocol CoreDataStack: class {
     func saveContext()
 }
 
-public class CoreDataStackImp: NSObject {
+public final class CoreDataStackImp: NSObject {
     public static let shared = CoreDataStackImp()
     public var container: NSPersistentContainer {
         /// CoreData Context Name >> Weather

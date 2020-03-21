@@ -12,7 +12,7 @@ enum MainDestinationRouter {
     case Details(ALWeatherModel)
 }
 
-class KMainRouter: KKBaseCoordinator<MainDestinationRouter, MainFactoryProtocol> {
+final class MainRouter: BaseCoordinator<MainDestinationRouter, MainFactoryProtocol> {
     private let window: UIWindow?
 
     override init(window: UIWindow?) {
@@ -23,7 +23,7 @@ class KMainRouter: KKBaseCoordinator<MainDestinationRouter, MainFactoryProtocol>
     }
 
     override func factory() -> MainFactoryProtocol? {
-        return KMainFactory(coordinator: self)
+        return MainFactory(coordinator: self)
     }
 
     public override func prepareForTransition(_ destination: MainDestinationRouter) {

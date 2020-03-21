@@ -15,7 +15,6 @@ public protocol NSManagedObjectContextProtocol {
     func allEntities<T: NSManagedObject>(withType type: T.Type) throws -> [T]
     func allEntities<T: NSManagedObject>(withType type: T.Type, predicate: NSPredicate?) throws -> [T]
     func addEntity<T: NSManagedObject>(withType type: T.Type) -> T?
-    
     func save() throws
     func delete(_ object: NSManagedObject)
 }

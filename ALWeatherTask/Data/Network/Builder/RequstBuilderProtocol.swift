@@ -17,7 +17,7 @@ public protocol URLRequstProtocol
     var urlRequst: URLRequest { get }
 }
 ///Requst Builder
-public protocol KKRequstBuilderProtocol: URLRequstProtocol, KKResponseProtocol
+public protocol RequstBuilderProtocol: URLRequstProtocol, ResponseProtocol
 {
     /// Base Url
     var baseUrl: String { get }
@@ -31,7 +31,7 @@ public protocol KKRequstBuilderProtocol: URLRequstProtocol, KKResponseProtocol
     var headers: Headers { get }
 }
 
-extension KKRequstBuilderProtocol
+extension RequstBuilderProtocol
 {
     public var urlRequst: URLRequest
     {

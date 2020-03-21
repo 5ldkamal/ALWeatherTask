@@ -21,19 +21,19 @@ public protocol BLocationOutRepoDelegate: class {
     func locationFailed()
 }
 
-class ALWLocationManger: NSObject {
+final class ALWLocationManger: NSObject {
     weak var delegate: BLocationOutRepoDelegate?
 
     private let locationManger: CLLocationManager
-    private let locationProxy: KKLocationMangerProxy
-    private let auth: KKDefaultLocationAuthorization
+    private let locationProxy: LocationMangerProxy
+    private let auth: DefaultLocationAuthorization
     private let locationProvider: KKDefaultLocationProvider
 
-    init(type: KKLocationType = .oneShot) {
+    init(type: LocationType = .oneShot) {
         // location
         locationManger = CLLocationManager()
-        locationProxy = KKLocationMangerProxy(locationManger: locationManger)
-        auth = KKDefaultLocationAuthorization(location: locationProxy)
+        locationProxy = LocationMangerProxy(locationManger: locationManger)
+        auth = DefaultLocationAuthorization(location: locationProxy)
         locationProvider = KKDefaultLocationProvider(locationManger: locationProxy, locationAuthorization: auth)
 
         super.init()
@@ -51,16 +51,16 @@ extension ALWLocationManger: BLocationRepoProtocol
 
 // MARK: - HandleLocaiton
 
-extension ALWLocationManger: KKLocationProviderDelegate
+extension ALWLocationManger: LocationProviderDelegate
 {
     func locationProvider(_ location: CLLocationCoordinate2D) {
         delegate?.location(location)
     }
 }
 
-extension ALWLocationManger: KKLocationAuthorizationDelegate
+extension ALWLocationManger: LocationAuthorizationDelegate
 {
-    func locationAuthorizationDenied(for locationAuthorization: KKLocationAuthorization) {
+    func locationAuthorizationDenied(for locationAuthorization: LocationAuthorization) {
         delegate?.locationFailed()
     }
 }

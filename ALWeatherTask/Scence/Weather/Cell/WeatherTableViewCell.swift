@@ -8,11 +8,11 @@
 
 import UIKit
 
-class WeatherTableViewCell: UITableViewCell {
+final class WeatherTableViewCell: UITableViewCell {
     @IBOutlet private var imageView_: UIImageView?
     @IBOutlet private var dateLbl: UILabel?
     @IBOutlet private var tempLbl: UILabel?
-    
+
     var temp: ALWeatherModel? {
         didSet {
             guard let temp = temp else {
@@ -25,11 +25,11 @@ class WeatherTableViewCell: UITableViewCell {
             }
         }
     }
-    
+
     private func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
-    
+
     private func downloadImage(from url: URL) {
         print("Download Started")
         getData(from: url) { data, response, error in

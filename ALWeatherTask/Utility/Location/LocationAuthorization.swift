@@ -9,36 +9,35 @@
 import CoreLocation
 import UIKit
 
-extension Notification.Name
-{
+extension Notification.Name {
     static let UpdateLocation = Notification.Name("Notification.Name.UpdateLocation")
 }
 
-protocol KKLocationAuthorizationDelegate: class
+protocol LocationAuthorizationDelegate: class
 {
-    func locationAuthorizationDenied(for locationAuthorization: KKLocationAuthorization)
+    func locationAuthorizationDenied(for locationAuthorization: LocationAuthorization)
 }
 
-protocol KKLocationAuthorization
+protocol LocationAuthorization
 {
-    var delegate: KKLocationAuthorizationDelegate? { get set }
+    var delegate: LocationAuthorizationDelegate? { get set }
     func askForAuthorization()
 }
 
-final class KKDefaultLocationAuthorization: NSObject
+final class DefaultLocationAuthorization: NSObject
 {
-    let location: KKLocationManger
-    weak var delegate: KKLocationAuthorizationDelegate?
+    let location: LocationManger
+    weak var delegate: LocationAuthorizationDelegate?
 
-    init(location: KKLocationManger)
+    init(location: LocationManger)
     {
         self.location = location
         super.init()
-//        self.location.authorizedDelegate = self
+        self.location.authorizedDelegate = self
     }
 }
 
-extension KKDefaultLocationAuthorization: KKLocationAuthorization
+extension DefaultLocationAuthorization: LocationAuthorization
 {
     func askForAuthorization()
     {
@@ -51,14 +50,14 @@ extension KKDefaultLocationAuthorization: KKLocationAuthorization
     }
 }
 
-extension KKDefaultLocationAuthorization: KKLocationMangerAuthorizationDelegate
+extension DefaultLocationAuthorization: KKLocationMangerAuthorizationDelegate
 {
     private func NotifyForAuthorizatin()
     {
         NotificationCenter.default.post(name: .UpdateLocation, object: self)
     }
 
-    func locationManager(_ manager: KKLocationManger, didChangeAuthorization status: CLAuthorizationStatus)
+    func locationManager(_ manager: LocationManger, didChangeAuthorization status: CLAuthorizationStatus)
     {
         switch status
         {

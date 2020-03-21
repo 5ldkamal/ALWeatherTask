@@ -12,10 +12,10 @@ public protocol ALWeatherDetailsViewModelProtocol: class {
     var weatherModel: ALWeatherModel { get set }
 }
 
-class ALWeatherDetailsViewModel: NSObject , ALWeatherDetailsViewModelProtocol {
+final class ALWeatherDetailsViewModel: NSObject, ALWeatherDetailsViewModelProtocol {
     public var weatherModel: ALWeatherModel
-    fileprivate let router: KMainRouter
-    init(weatherModel: ALWeatherModel, router: KMainRouter) {
+    fileprivate let router: MainRouter
+    init(weatherModel: ALWeatherModel, router: MainRouter) {
         self.router = router
         self.weatherModel = weatherModel
     }

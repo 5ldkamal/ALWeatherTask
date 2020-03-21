@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension KKRequstBuilderProtocol
+extension RequstBuilderProtocol
 {
     var baseUrl: String
     {

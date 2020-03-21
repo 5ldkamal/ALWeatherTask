@@ -7,15 +7,15 @@
 //
 
 import Foundation
-public protocol KKResponseProtocol { //: KKHandleResponseProtocol
+public protocol ResponseProtocol { //: KKHandleResponseProtocol
     func requst<T>(model: T.Type, complation: @escaping ResponseResult<T>) where T: Codable
 }
 
-extension KKResponseProtocol where Self: URLRequstProtocol {
+extension ResponseProtocol where Self: URLRequstProtocol {
     func requst<T>(model: T.Type, complation: @escaping ResponseResult<T>) where T: Codable {
         let task = URLSession.shared.dataTask(with: self.urlRequst) { data, urlResponse, error in
             /// Handle Response
-            let parsing = KKResponseHandler()
+            let parsing = ResponseHandler()
             parsing.handleResponse((data, urlResponse, error), completion: complation)
         }
         task.resume()

@@ -8,22 +8,18 @@
 
 import UIKit
 
-
-
 public protocol WeatherRemoteGetway {
-    func fetchWeather(api: KKRequstBuilderProtocol ,completionHandler: @escaping (ResultStatuts<[ALWeatherModel]>) -> Void)
+    func fetchWeather(api: RequstBuilderProtocol, completionHandler: @escaping (ResultStatuts<[ALWeatherModel]>) -> Void)
 }
-
 
 public protocol WeatherGetway {
     func fetchWeather(completionHandler: @escaping (ResultStatuts<[ALWeatherModel]>) -> Void)
 }
+
 public protocol WeatherLocalGetway: WeatherGetway {
     func add(_ weather: ALWeatherModel, completionHandler: @escaping (ResultStatuts<ALWeatherModel>) -> Void)
 }
 
-
-
-public protocol ALErrorProtocol : class {
-    func showError(_ error : ResultError , forHidden hidden: Bool)
+public protocol ALErrorProtocol: class {
+    func showError(_ error: ResultError, forHidden hidden: Bool)
 }
