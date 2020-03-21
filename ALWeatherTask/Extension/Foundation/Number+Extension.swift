@@ -1,0 +1,42 @@
+//
+//  Number+Extension.swift
+//  ALWeatherTask
+//
+//  Created by Khaled kamal on 3/21/20.
+//  Copyright © 2020 Khaled kamal. All rights reserved.
+//
+
+import UIKit
+
+public extension Int
+{
+    var toDouble: Double
+    {
+        return Double(self)
+    }
+
+    var toString: String
+    {
+        return String(self)
+    }
+
+    var toCGFloat: CGFloat
+    {
+        return CGFloat(integerLiteral: self)
+    }
+}
+
+extension Double
+{
+    /// To String
+    var toString: String
+    {
+        return NSString(format: "%.3f", self) as String
+    }
+
+    /// To Int
+    var toInt: Int
+    {
+        return Int(self)
+    }
+}

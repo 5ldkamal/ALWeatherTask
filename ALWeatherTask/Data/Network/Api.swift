@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 enum WeatherURLS {
    static let imageUrl = "http://openweathermap.org/img/w/%@.png"
@@ -15,12 +16,12 @@ enum WeatherURLS {
 let WEATHERPAIKEY = "5c6ddd7296886691926c98f9420327cd"
 enum Api: KKRequstBuilderProtocol
 {
-    case currentWeatherByLocation
+    case currentWeatherByLocation(CLLocationCoordinate2D)
     var path: String
     {
         switch self
         {
-        case .currentWeatherByLocation: return "weather?lat=31.2&lon=31.2&appid=\(WEATHERPAIKEY)"
+        case .currentWeatherByLocation(let location): return "weather?lat=\(location.latitude)&lon=\(location.longitude).2&appid=\(WEATHERPAIKEY)"
         }
     }
 }
