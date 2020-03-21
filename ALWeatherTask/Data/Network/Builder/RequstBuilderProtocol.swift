@@ -17,7 +17,7 @@ public protocol URLRequstProtocol
     var urlRequst: URLRequest { get }
 }
 ///Requst Builder
-public protocol RequstBuilderProtocol: URLRequstProtocol, KKResponseProtocol
+public protocol RequstBuilderProtocol: URLRequstProtocol, ResponseProtocol
 {
     /// Base Url
     var baseUrl: String { get }

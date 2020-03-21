@@ -9,8 +9,7 @@
 import CoreLocation
 import UIKit
 
-extension Notification.Name
-{
+extension Notification.Name {
     static let UpdateLocation = Notification.Name("Notification.Name.UpdateLocation")
 }
 
@@ -21,7 +20,7 @@ protocol LocationAuthorizationDelegate: class
 
 protocol LocationAuthorization
 {
-    var delegate: KKLocationAuthorizationDelegate? { get set }
+    var delegate: LocationAuthorizationDelegate? { get set }
     func askForAuthorization()
 }
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ALWeatherController: UIViewController {
+final class ALWeatherController: UIViewController {
     // MARK: - Properities
 
     /// Outlet
@@ -17,13 +17,17 @@ class ALWeatherController: UIViewController {
     @IBOutlet private var countryLbl: UILabel?
     @IBOutlet private var savedBtn: UIButton?
     /// ViewModel
-    var viewModel: ALWeatherViewModelProtocol?
+    private(set) var viewModel: ALWeatherViewModelProtocol?
 
     // MARK: - Method
 
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
+    }
+
+    public func setViewModel(viewModel: ALWeatherViewModelProtocol) {
+        self.viewModel = viewModel
     }
 }
 

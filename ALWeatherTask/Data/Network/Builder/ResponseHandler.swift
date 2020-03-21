@@ -13,7 +13,7 @@ public protocol HandleResponseProtocol {
     func handleResponse<T>(_ response: DataResponse, completion: ResponseResult<T>) where T: Codable
 }
 
-open class ResponseHandler: NSObject
+final class ResponseHandler: NSObject
 {}
 
 extension ResponseHandler: HandleResponseProtocol {

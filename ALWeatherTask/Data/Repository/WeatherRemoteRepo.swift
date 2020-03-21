@@ -8,9 +8,8 @@
 
 import UIKit
 
-class WeatherRemoteRepo: NSObject, WeatherRemoteGetway {
-
-    func fetchWeather(api: KKRequstBuilderProtocol ,completionHandler: @escaping (ResultStatuts<[ALWeatherModel]>) -> Void) {
+final class WeatherRemoteRepo: NSObject, WeatherRemoteGetway {
+    func fetchWeather(api: RequstBuilderProtocol, completionHandler: @escaping (ResultStatuts<[ALWeatherModel]>) -> Void) {
         api.requst(model: WeatherReponseModel.self) { result in
             switch result {
             case .sucess(let model):

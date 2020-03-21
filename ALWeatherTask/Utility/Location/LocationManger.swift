@@ -27,7 +27,7 @@ protocol KKLocationMangerAuthorizationDelegate: class {
     func locationManager(_ manager: LocationManger, didChangeAuthorization status: CLAuthorizationStatus)
 }
 
-class LocationMangerProxy: NSObject {
+final class LocationMangerProxy: NSObject {
     weak var delegate: KKLocationMangerDelegate?
     weak var authorizedDelegate: KKLocationMangerAuthorizationDelegate?
     

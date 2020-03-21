@@ -8,6 +8,20 @@
 
 import UIKit
 
-class Errors: NSObject {
+public protocol Localized {
+    var localized: String { get }
+}
 
+public enum WeatherErrors: Localized {
+    case failedRetrieveDatabase
+    case failedAddToDataBase
+
+    public var localized: String {
+        switch self {
+        case .failedAddToDataBase:
+            return "Failed adding the weather in the database"
+        case .failedRetrieveDatabase:
+            return "Failed retrieving Weather the data base"
+        }
+    }
 }

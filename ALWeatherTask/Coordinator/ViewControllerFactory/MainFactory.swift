@@ -13,9 +13,9 @@ protocol MainFactoryProtocol: class {
     func details(_ model: ALWeatherModel) -> ALWeatherDetailsController
 }
 
-class MainFactory: MainFactoryProtocol {
-    let coordinator: KMainRouter
-    init(coordinator: KMainRouter) {
+final class MainFactory: MainFactoryProtocol {
+    let coordinator: MainRouter
+    init(coordinator: MainRouter) {
         self.coordinator = coordinator
     }
 
@@ -27,17 +27,15 @@ class MainFactory: MainFactoryProtocol {
         let location = ALWLocationManger()
         let viewModel = ALWeatherViewModel(repo, location: location, router: coordinator)
         let vc = ALWeatherController.instanceVc()
-        vc.viewModel = viewModel
-        if let vm = vc.viewModel as? ALWeatherViewModel {
-            vm += vc
-        }
+        vc.setViewModel(viewModel: viewModel)
         return vc
     }
 
     /// Main ViewController
     func details(_ model: ALWeatherModel) -> ALWeatherDetailsController {
         let vc = ALWeatherDetailsController.instanceVc()
-        vc.viewModel = ALWeatherDetailsViewModel(weatherModel: model, router: coordinator)
+        let viewModel = ALWeatherDetailsViewModel(weatherModel: model, router: coordinator)
+        vc.setViewModel(viewModel: viewModel)
         return vc
     }
 }

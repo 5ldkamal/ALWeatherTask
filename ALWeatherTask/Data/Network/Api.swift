@@ -15,7 +15,7 @@ enum WeatherURLS
 }
 
 let WEATHERPAIKEY = "5c6ddd7296886691926c98f9420327cd"
-enum Api: KKRequstBuilderProtocol
+enum Api: RequstBuilderProtocol
 {
     case currentWeatherByLocation(CLLocationCoordinate2D)
     var path: String

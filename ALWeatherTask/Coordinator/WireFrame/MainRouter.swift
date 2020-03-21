@@ -12,7 +12,7 @@ enum MainDestinationRouter {
     case Details(ALWeatherModel)
 }
 
-final class MainRouter: KKBaseCoordinator<MainDestinationRouter, MainFactoryProtocol> {
+final class MainRouter: BaseCoordinator<MainDestinationRouter, MainFactoryProtocol> {
     private let window: UIWindow?
 
     override init(window: UIWindow?) {

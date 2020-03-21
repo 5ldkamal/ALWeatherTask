@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class KKBaseCoordinator<D, F>:Naviagator  {
+open class BaseCoordinator<D, F>:Naviagator  {
     
     //MARK:- Type Aias
     public typealias Destination = D

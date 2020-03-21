@@ -23,7 +23,7 @@ protocol LocationProvider {
     func getLocation()
 }
 
-class KKDefaultLocationProvider: NSObject {
+final class KKDefaultLocationProvider: NSObject {
     weak var deleagte: LocationProviderDelegate?
     let locationManger: LocationManger
     let locationAuthorization: LocationAuthorization

@@ -8,20 +8,9 @@
 
 import CoreData
 import Foundation
-
-struct CoreError: Error {
-    var localizedDescription: String {
-        return message
-    }
-
-    var message = ""
-}
-
-typealias Result<T> = Swift.Result<T, Error>
-
 public protocol ALWeatherLocalStorageProtocol {}
 
-class ALWeatherLocalStorageRepo : WeatherLocalGetway {
+final class ALWeatherLocalStorageRepo: WeatherLocalGetway {
     fileprivate let context: NSManagedObjectContextProtocol
     init(_ context: NSManagedObjectContextProtocol) {
         self.context = context
@@ -32,13 +21,13 @@ class ALWeatherLocalStorageRepo : WeatherLocalGetway {
             let weatherStatus = coreData.map { $0.weatherModel }
             completionHandler(ResultStatuts.sucess(weatherStatus))
         } else {
-            completionHandler(ResultStatuts.failure(ResultError.dataBase("Failed retrieving Weather the data base")))
+            completionHandler(ResultStatuts.failure(ResultError.dataBase(WeatherErrors.failedRetrieveDatabase.localized)))
         }
     }
 
     func add(_ weather: ALWeatherModel, completionHandler: @escaping (ResultStatuts<ALWeatherModel>) -> Void) {
         guard let entity = context.addEntity(withType: WeatherEntity.self) else {
-            completionHandler(ResultStatuts.failure(ResultError.dataBase("Failed adding the weather in the database")))
+            completionHandler(ResultStatuts.failure(ResultError.dataBase(WeatherErrors.failedAddToDataBase.localized)))
             return
         }
         entity.addRecord(weather)
@@ -46,7 +35,7 @@ class ALWeatherLocalStorageRepo : WeatherLocalGetway {
             try context.save()
             completionHandler(ResultStatuts.sucess(weather))
         } catch {
-            completionHandler(ResultStatuts.failure(ResultError.dataBase("Failed adding the weather in the database")))
+            completionHandler(ResultStatuts.failure(ResultError.dataBase(WeatherErrors.failedAddToDataBase.localized)))
         }
     }
 }
