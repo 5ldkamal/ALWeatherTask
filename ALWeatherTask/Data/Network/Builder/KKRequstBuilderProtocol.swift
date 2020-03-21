@@ -35,6 +35,7 @@ extension KKRequstBuilderProtocol
 {
     public var urlRequst: URLRequest
     {
+        print(URL(string: baseUrl + path)!)
         var request = URLRequest(url: URL(string: baseUrl + path)!)
         request.httpMethod = httpMethod.rawValue
         request.allHTTPHeaderFields = headers

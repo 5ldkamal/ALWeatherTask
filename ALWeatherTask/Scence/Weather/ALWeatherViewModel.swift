@@ -9,26 +9,33 @@
 import CoreLocation
 import UIKit
 public protocol ALWeatherViewModelProtocol {
-    func loadWeather()
-
+    var currentWeather: Boxing<ALWeatherModel?> { get set }
     //
     var numberOfSections: Int { get
     }
     var isReloaded: Boxing<Bool> { get set }
+    var isSaved: Boxing<State?> { get set }
     func titleForSection(section: Int) -> String?
     func numberOfItems(section: Int) -> Int
     func itemForIndexPath(_ indexPath: IndexPath) -> ALWeatherModel
     func selectItemForIndex(_ indexPath: IndexPath)
+
+    func loadWeather()
+    func save()
 }
 
 class ALWeatherViewModel: BaseViewModel, ALWeatherViewModelProtocol {
-    var isReloaded: Boxing<Bool> = Boxing(false)
+    public var currentWeather: Boxing<ALWeatherModel?> = Boxing(nil)
+    public var isReloaded: Boxing<Bool> = Boxing(false)
+    public var isSaved: Boxing<State?> = Boxing(nil)
     fileprivate var sections: [WeatherSection] = []
     fileprivate let repo: WeatherRepoProtocol
     fileprivate let location: BLocationRepoProtocol
-    init(_ repo: WeatherRepoProtocol, location: BLocationRepoProtocol) {
+    fileprivate let router: KMainRouter
+    init(_ repo: WeatherRepoProtocol, location: BLocationRepoProtocol, router: KMainRouter) {
         self.repo = repo
         self.location = location
+        self.router = router
         super.init()
         self.repo.delegate = self
         self.location.delegate = self
@@ -46,18 +53,28 @@ class ALWeatherViewModel: BaseViewModel, ALWeatherViewModelProtocol {
 
 extension ALWeatherViewModel: WeatherRepoOutPutProtocol {
     func currentWeaather(_ weather: [ALWeatherModel]) {
-        let current = WeatherSection(title: "Current", items: weather)
+        let current = WeatherSection(title: "Current Weather", items: weather)
         sections.insert(current, at: 0)
         isReloaded.value = true
+        currentWeather.value = weather.first
     }
 
     func presvoisWeather(_ weather: [ALWeatherModel]) {
-        let prev = WeatherSection(title: "Current", items: weather)
+        let prev = WeatherSection(title: "Previous Weather", items: weather)
         sections.append(prev)
         isReloaded.value = true
+        print(prev)
     }
 
-    func savedWeather(_ weather: ALWeatherModel) {}
+    func save() {
+        guard let value = currentWeather.value else { return }
+        repo.saveWeather(value)
+    }
+
+    func savedWeather(_ weather: ALWeatherModel) {
+        isReloaded.value = true
+        isSaved.value = State(messge: "Saved Successfully", state: true)
+    }
 }
 
 // MARK: - Location Handler
@@ -68,7 +85,7 @@ extension ALWeatherViewModel: BLocationOutRepoDelegate {
     }
 
     func locationFailed() {
-        self.showError(ResultError.location("Location Error"), forHidden: false)
+        self.showError(ResultError.location("Location Denied"), forHidden: false)
     }
 }
 
@@ -93,13 +110,19 @@ extension ALWeatherViewModel {
 
     func selectItemForIndex(_ indexPath: IndexPath) {
         let item = itemForIndexPath(indexPath)
-        print(item.area)
+        router.trigger(destaintion: .Details(item))
     }
 }
 
-//
+///
 public struct WeatherSection
 {
     let title: String
     let items: [ALWeatherModel]
+}
+
+///
+public struct State {
+    let messge: String
+    let state: Bool
 }

@@ -13,14 +13,3 @@ extension UICollectionView {
         return self.dequeueReusableCell(withReuseIdentifier: String(describing: type), for: indexPath) as! Cell
     }
 }
-
-//extension UICollectionView: StatusController {
-//    public var statusView: StatusView? {
-//        return DefaultStatusView()
-//    }
-//
-//    func removeStatus() { // Remove PlaceHolder
-//        self.view.backgroundColor = .white
-//        self.hideStatus()
-//    }
-//}

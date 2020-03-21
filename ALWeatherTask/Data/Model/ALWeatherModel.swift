@@ -18,7 +18,8 @@ public struct ALWeatherModel {
         area = ALWArea(response)
         weather = ALWweather(response)
     }
-    init(area : ALWArea , weather: ALWweather) {
+
+    init(area: ALWArea, weather: ALWweather) {
         self.area = area
         self.weather = weather
     }
@@ -31,6 +32,9 @@ public struct ALWweather {
     public let date: String
     public let temp, feelsLike, tempMin, tempMax: String
     public let pressure, humidity, seaLevel, grndLevel: String
+    public let sunrise, sunset: String
+    public let wind: String
+
     init(_ response: WeatherReponseModel) {
         temp = (response.main?.temp ?? 0.0).toString
         feelsLike = (response.main?.feelsLike ?? 0.0).toString
@@ -44,9 +48,12 @@ public struct ALWweather {
         main = response.weather?.first?.main ?? ""
         weatherDescription = response.weather?.first?.weatherDescription ?? ""
         icon = String(format: WeatherURLS.imageUrl, response.weather?.first?.icon ?? "")
+        self.sunrise = (response.sys?.sunrise ?? 0).toTimeStr
+        self.sunset = (response.sys?.sunset ?? 0).toTimeStr
+        self.wind = (response.wind?.speed ?? 0.0).toString
     }
 
-    init(main: String?, weatherDescription: String?, icon: String?, date: String?, temp: String?, feelsLike: String?, tempMin: String?, tempMax: String?, pressure: String?, humidity: String?, seaLevel: String?, grndLevel: String?) {
+    init(main: String?, weatherDescription: String?, icon: String?, date: String?, temp: String?, feelsLike: String?, tempMin: String?, tempMax: String?, pressure: String?, humidity: String?, seaLevel: String?, grndLevel: String?, sunrise: String?, sunset: String?, wind: String?) {
         self.temp = temp ?? "0.0"
         self.feelsLike = feelsLike ?? "0.0"
         self.tempMin = tempMin ?? "0.0"
@@ -55,10 +62,13 @@ public struct ALWweather {
         self.humidity = humidity ?? "0"
         self.seaLevel = seaLevel ?? "0"
         self.grndLevel = grndLevel ?? "0"
-        self.date =  date ?? ""
+        self.date = date ?? ""
         self.main = main ?? ""
         self.weatherDescription = weatherDescription ?? ""
         self.icon = icon ?? ""
+        self.sunrise = sunrise ?? ""
+        self.sunset = sunset ?? ""
+        self.wind = wind ?? "0.0"
     }
 }
 

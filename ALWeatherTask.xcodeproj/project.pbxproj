@@ -17,6 +17,16 @@
 		8B0B3B642424290E006C73AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B0B3B622424290E006C73AE /* LaunchScreen.storyboard */; };
 		8B0B3B6F2424290F006C73AE /* ALWeatherTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0B3B6E2424290F006C73AE /* ALWeatherTaskTests.swift */; };
 		8B0B3B7A2424290F006C73AE /* ALWeatherTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0B3B792424290F006C73AE /* ALWeatherTaskUITests.swift */; };
+		8B0D2E1D24269D25003D7015 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D2E1B24269D25003D7015 /* Presentable.swift */; };
+		8B0D2E1E24269D25003D7015 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D2E1C24269D25003D7015 /* Router.swift */; };
+		8B0D2E2024269D33003D7015 /* KAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D2E1F24269D33003D7015 /* KAppCoordinator.swift */; };
+		8B0D2E2424269D41003D7015 /* KKBaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D2E2224269D41003D7015 /* KKBaseCoordinator.swift */; };
+		8B0D2E2524269D41003D7015 /* KMainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D2E2324269D41003D7015 /* KMainRouter.swift */; };
+		8B0D2E2824269D4B003D7015 /* KMainFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D2E2724269D4B003D7015 /* KMainFactory.swift */; };
+		8B0D2E2A2426A17F003D7015 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D2E292426A17F003D7015 /* UIViewController+Extension.swift */; };
+		8B0D2E2D2426A2E4003D7015 /* AlertBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D2E2C2426A2E4003D7015 /* AlertBuilder.swift */; };
+		8B0D2E302426A931003D7015 /* ALWeatherDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D2E2F2426A931003D7015 /* ALWeatherDetailsViewModel.swift */; };
+		8B0D2E322426AA35003D7015 /* ALWeatherDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D2E312426AA35003D7015 /* ALWeatherDetailsController.swift */; };
 		8B0ED60E24261C0A005D0886 /* NSManagedObjectContext+Utilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0ED60D24261C0A005D0886 /* NSManagedObjectContext+Utilites.swift */; };
 		8B0ED616242628E1005D0886 /* WeatherEntity+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0ED615242628E1005D0886 /* WeatherEntity+Extension.swift */; };
 		8B0ED61824263365005D0886 /* WeatherLocalStorageRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0ED61724263365005D0886 /* WeatherLocalStorageRepo.swift */; };
@@ -90,6 +100,16 @@
 		8B0B3B752424290F006C73AE /* ALWeatherTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ALWeatherTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B0B3B792424290F006C73AE /* ALWeatherTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALWeatherTaskUITests.swift; sourceTree = "<group>"; };
 		8B0B3B7B2424290F006C73AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B0D2E1B24269D25003D7015 /* Presentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
+		8B0D2E1C24269D25003D7015 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		8B0D2E1F24269D33003D7015 /* KAppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KAppCoordinator.swift; sourceTree = "<group>"; };
+		8B0D2E2224269D41003D7015 /* KKBaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KKBaseCoordinator.swift; sourceTree = "<group>"; };
+		8B0D2E2324269D41003D7015 /* KMainRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMainRouter.swift; sourceTree = "<group>"; };
+		8B0D2E2724269D4B003D7015 /* KMainFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMainFactory.swift; sourceTree = "<group>"; };
+		8B0D2E292426A17F003D7015 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		8B0D2E2C2426A2E4003D7015 /* AlertBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertBuilder.swift; sourceTree = "<group>"; };
+		8B0D2E2F2426A931003D7015 /* ALWeatherDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALWeatherDetailsViewModel.swift; sourceTree = "<group>"; };
+		8B0D2E312426AA35003D7015 /* ALWeatherDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALWeatherDetailsController.swift; sourceTree = "<group>"; };
 		8B0ED60D24261C0A005D0886 /* NSManagedObjectContext+Utilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Utilites.swift"; sourceTree = "<group>"; };
 		8B0ED615242628E1005D0886 /* WeatherEntity+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherEntity+Extension.swift"; sourceTree = "<group>"; };
 		8B0ED61724263365005D0886 /* WeatherLocalStorageRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocalStorageRepo.swift; sourceTree = "<group>"; };
@@ -217,6 +237,7 @@
 		8B0B3B562424290C006C73AE /* ALWeatherTask */ = {
 			isa = PBXGroup;
 			children = (
+				8B0D2E1924269D10003D7015 /* Coordinator */,
 				8B0B3B8C24242F6A006C73AE /* Utility */,
 				8B0B3B8B24242F64006C73AE /* Common */,
 				8B0B3B8A24242F58006C73AE /* Extension */,
@@ -272,6 +293,7 @@
 		8B0B3B8924242F47006C73AE /* Scence */ = {
 			isa = PBXGroup;
 			children = (
+				8B0D2E2E2426A3AA003D7015 /* WeatherDetails */,
 				8B30DF6F24253DAE003CBBF3 /* Weather */,
 			);
 			path = Scence;
@@ -297,6 +319,7 @@
 		8B0B3B8C24242F6A006C73AE /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				8B0D2E2B2426A2DD003D7015 /* UI */,
 				8B30DF7524254888003CBBF3 /* Location */,
 			);
 			path = Utility;
@@ -332,6 +355,60 @@
 				8B0ED61B24263730005D0886 /* RepoProtocols.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		8B0D2E1924269D10003D7015 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				8B0D2E1F24269D33003D7015 /* KAppCoordinator.swift */,
+				8B0D2E2624269D4B003D7015 /* ViewControllerFactory */,
+				8B0D2E2124269D41003D7015 /* WireFrame */,
+				8B0D2E1A24269D25003D7015 /* Navigator */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		8B0D2E1A24269D25003D7015 /* Navigator */ = {
+			isa = PBXGroup;
+			children = (
+				8B0D2E2224269D41003D7015 /* KKBaseCoordinator.swift */,
+				8B0D2E1B24269D25003D7015 /* Presentable.swift */,
+				8B0D2E1C24269D25003D7015 /* Router.swift */,
+			);
+			path = Navigator;
+			sourceTree = "<group>";
+		};
+		8B0D2E2124269D41003D7015 /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+				8B0D2E2324269D41003D7015 /* KMainRouter.swift */,
+			);
+			path = WireFrame;
+			sourceTree = "<group>";
+		};
+		8B0D2E2624269D4B003D7015 /* ViewControllerFactory */ = {
+			isa = PBXGroup;
+			children = (
+				8B0D2E2724269D4B003D7015 /* KMainFactory.swift */,
+			);
+			path = ViewControllerFactory;
+			sourceTree = "<group>";
+		};
+		8B0D2E2B2426A2DD003D7015 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8B0D2E2C2426A2E4003D7015 /* AlertBuilder.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		8B0D2E2E2426A3AA003D7015 /* WeatherDetails */ = {
+			isa = PBXGroup;
+			children = (
+				8B0D2E2F2426A931003D7015 /* ALWeatherDetailsViewModel.swift */,
+				8B0D2E312426AA35003D7015 /* ALWeatherDetailsController.swift */,
+			);
+			path = WeatherDetails;
 			sourceTree = "<group>";
 		};
 		8B0ED62124263EE3005D0886 /* ViewModel */ = {
@@ -373,6 +450,7 @@
 			children = (
 				8B0ED64324264A10005D0886 /* Cellable.swift */,
 				8B0ED63F24264A0B005D0886 /* UICollectionView + Extension.swift */,
+				8B0D2E292426A17F003D7015 /* UIViewController+Extension.swift */,
 				8B0ED64024264A0B005D0886 /* UITableView + Extension.swift */,
 			);
 			path = UI;
@@ -624,6 +702,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B0D2E1E24269D25003D7015 /* Router.swift in Sources */,
 				8B0ED637242640CD005D0886 /* CustomOperators.swift in Sources */,
 				8B0ED62E242640CD005D0886 /* StatefulView.swift in Sources */,
 				8B0B3B582424290C006C73AE /* AppDelegate.swift in Sources */,
@@ -631,11 +710,13 @@
 				8B30DF6824252C54003CBBF3 /* KKHttpMethod.swift in Sources */,
 				8B30DF6924252C54003CBBF3 /* KKRequstBuilderProtocol.swift in Sources */,
 				8B0ED633242640CD005D0886 /* GenericState.swift in Sources */,
+				8B0D2E322426AA35003D7015 /* ALWeatherDetailsController.swift in Sources */,
 				8B30DFCA24257406003CBBF3 /* CoreDataStackImp.swift in Sources */,
 				8B0ED64224264A0B005D0886 /* UITableView + Extension.swift in Sources */,
 				8B30DF6724252C54003CBBF3 /* KKResponseProtocol.swift in Sources */,
 				8B0ED62324263EEE005D0886 /* BaseViewModel.swift in Sources */,
 				8B0ED64124264A0B005D0886 /* UICollectionView + Extension.swift in Sources */,
+				8B0D2E2524269D41003D7015 /* KMainRouter.swift in Sources */,
 				8B30DFC524254EB4003CBBF3 /* KKLocationAuthorization.swift in Sources */,
 				8B0ED631242640CD005D0886 /* State.swift in Sources */,
 				8B30DFCD24258175003CBBF3 /* Weather.xcdatamodeld in Sources */,
@@ -643,7 +724,9 @@
 				8B0ED630242640CD005D0886 /* ViewModel.swift in Sources */,
 				8B30DF7424254170003CBBF3 /* WeatherReponseModel.swift in Sources */,
 				8B30DF6424252C54003CBBF3 /* KKResult.swift in Sources */,
+				8B0D2E2824269D4B003D7015 /* KMainFactory.swift in Sources */,
 				8B0ED632242640CD005D0886 /* Boxing.swift in Sources */,
+				8B0D2E2424269D41003D7015 /* KKBaseCoordinator.swift in Sources */,
 				8B30DF6A24252C54003CBBF3 /* KKError.swift in Sources */,
 				8B0ED61A2426338B005D0886 /* WeatherRemoteRepo.swift in Sources */,
 				8B0ED634242640CD005D0886 /* GenericViewState.swift in Sources */,
@@ -651,10 +734,13 @@
 				8B30DFCF242581B8003CBBF3 /* ALWeatherModel.swift in Sources */,
 				8B0ED62024263DAF005D0886 /* ALWeatherViewModel.swift in Sources */,
 				8B0ED635242640CD005D0886 /* StateSubscription.swift in Sources */,
+				8B0D2E1D24269D25003D7015 /* Presentable.swift in Sources */,
 				8B0ED63A24264557005D0886 /* WeatherTableViewCell.swift in Sources */,
+				8B0D2E2024269D33003D7015 /* KAppCoordinator.swift in Sources */,
 				8B30DFC824255399003CBBF3 /* ALWLocationManger.swift in Sources */,
 				8B30DF6C24253234003CBBF3 /* Api.swift in Sources */,
 				8B30DF7124253DCC003CBBF3 /* ALWeatherController.swift in Sources */,
+				8B0D2E302426A931003D7015 /* ALWeatherDetailsViewModel.swift in Sources */,
 				8B0ED636242640CD005D0886 /* CustomLogDescriptionConvertible.swift in Sources */,
 				8B30DFC624254EB4003CBBF3 /* KKLocationProvider.swift in Sources */,
 				8B0ED60E24261C0A005D0886 /* NSManagedObjectContext+Utilites.swift in Sources */,
@@ -662,8 +748,10 @@
 				8B30DF6E24253289003CBBF3 /* KKRequstBuilderProtocol+Extension.swift in Sources */,
 				8B0ED616242628E1005D0886 /* WeatherEntity+Extension.swift in Sources */,
 				8B0ED64424264A10005D0886 /* Cellable.swift in Sources */,
+				8B0D2E2D2426A2E4003D7015 /* AlertBuilder.swift in Sources */,
 				8B30DFC424254EB4003CBBF3 /* KKLocationManger.swift in Sources */,
 				8B0ED61E242637DF005D0886 /* WeatherRepo.swift in Sources */,
+				8B0D2E2A2426A17F003D7015 /* UIViewController+Extension.swift in Sources */,
 				8B0ED62F242640CD005D0886 /* Store.swift in Sources */,
 				8B0ED61824263365005D0886 /* WeatherLocalStorageRepo.swift in Sources */,
 			);

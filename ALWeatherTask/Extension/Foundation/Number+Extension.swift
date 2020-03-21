@@ -24,6 +24,14 @@ public extension Int
     {
         return CGFloat(integerLiteral: self)
     }
+    
+    var toTimeStr : String{
+        let s = self
+        let date = Date(timeIntervalSince1970: Double(s) / 1000)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH mm ss SSS"
+        return formatter.string(from: date)
+    }
 }
 
 extension Double
