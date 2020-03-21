@@ -10,6 +10,6 @@ import Foundation
 import UIKit
 extension UICollectionView {
     func dequeue<Cell: UICollectionViewCell>(indexPath: IndexPath, type: Cell.Type) -> Cell {
-        return self.dequeueReusableCell(withReuseIdentifier: String(describing: type), for: indexPath) as! Cell
+        return dequeueReusableCell(withReuseIdentifier: String(describing: type), for: indexPath) as! Cell
     }
 }

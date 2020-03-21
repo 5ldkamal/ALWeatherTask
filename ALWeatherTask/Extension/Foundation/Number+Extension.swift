@@ -10,22 +10,19 @@ import UIKit
 
 public extension Int
 {
-    var toDouble: Double
-    {
+    var toDouble: Double {
         return Double(self)
     }
 
-    var toString: String
-    {
+    var toString: String {
         return String(self)
     }
 
-    var toCGFloat: CGFloat
-    {
+    var toCGFloat: CGFloat {
         return CGFloat(integerLiteral: self)
     }
-    
-    var toTimeStr : String{
+
+    var toTimeStr: String {
         let s = self
         let date = Date(timeIntervalSince1970: Double(s) / 1000)
         let formatter = DateFormatter()
@@ -37,14 +34,12 @@ public extension Int
 extension Double
 {
     /// To String
-    var toString: String
-    {
+    var toString: String {
         return NSString(format: "%.3f", self) as String
     }
 
     /// To Int
-    var toInt: Int
-    {
+    var toInt: Int {
         return Int(self)
     }
 }

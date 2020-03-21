@@ -12,8 +12,8 @@ public protocol ResponseProtocol { //: KKHandleResponseProtocol
 }
 
 extension ResponseProtocol where Self: URLRequstProtocol {
-    func requst<T>(model: T.Type, complation: @escaping ResponseResult<T>) where T: Codable {
-        let task = URLSession.shared.dataTask(with: self.urlRequst) { data, urlResponse, error in
+    func requst<T>(model _: T.Type, complation: @escaping ResponseResult<T>) where T: Codable {
+        let task = URLSession.shared.dataTask(with: urlRequst) { data, urlResponse, error in
             /// Handle Response
             let parsing = ResponseHandler()
             parsing.handleResponse((data, urlResponse, error), completion: complation)

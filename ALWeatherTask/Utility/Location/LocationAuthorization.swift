@@ -13,24 +13,20 @@ extension Notification.Name {
     static let UpdateLocation = Notification.Name("Notification.Name.UpdateLocation")
 }
 
-protocol LocationAuthorizationDelegate: class
-{
+protocol LocationAuthorizationDelegate: class {
     func locationAuthorizationDenied(for locationAuthorization: LocationAuthorization)
 }
 
-protocol LocationAuthorization
-{
+protocol LocationAuthorization {
     var delegate: LocationAuthorizationDelegate? { get set }
     func askForAuthorization()
 }
 
-final class DefaultLocationAuthorization: NSObject
-{
+final class DefaultLocationAuthorization: NSObject {
     let location: LocationManger
     weak var delegate: LocationAuthorizationDelegate?
 
-    init(location: LocationManger)
-    {
+    init(location: LocationManger) {
         self.location = location
         super.init()
         self.location.authorizedDelegate = self
@@ -39,10 +35,8 @@ final class DefaultLocationAuthorization: NSObject
 
 extension DefaultLocationAuthorization: LocationAuthorization
 {
-    func askForAuthorization()
-    {
-        switch location.authorizationStatus
-        {
+    func askForAuthorization() {
+        switch location.authorizationStatus {
         case .notDetermined:
             location.requestWhenInUseAuthorization()
         default: break
@@ -52,17 +46,14 @@ extension DefaultLocationAuthorization: LocationAuthorization
 
 extension DefaultLocationAuthorization: KKLocationMangerAuthorizationDelegate
 {
-    private func NotifyForAuthorizatin()
-    {
+    private func NotifyForAuthorizatin() {
         NotificationCenter.default.post(name: .UpdateLocation, object: self)
     }
 
-    func locationManager(_ manager: LocationManger, didChangeAuthorization status: CLAuthorizationStatus)
-    {
-        switch status
-        {
+    func locationManager(_: LocationManger, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
         case .authorizedAlways, .authorizedWhenInUse:
-            self.NotifyForAuthorizatin()
+            NotifyForAuthorizatin()
 
         case .denied, .restricted:
             delegate?.locationAuthorizationDenied(for: self)

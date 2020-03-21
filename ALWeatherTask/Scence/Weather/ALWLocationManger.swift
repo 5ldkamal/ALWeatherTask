@@ -29,7 +29,7 @@ final class ALWLocationManger: NSObject {
     private let auth: DefaultLocationAuthorization
     private let locationProvider: KKDefaultLocationProvider
 
-    init(type: LocationType = .oneShot) {
+    init(type _: LocationType = .oneShot) {
         // location
         locationManger = CLLocationManager()
         locationProxy = LocationMangerProxy(locationManger: locationManger)
@@ -60,7 +60,7 @@ extension ALWLocationManger: LocationProviderDelegate
 
 extension ALWLocationManger: LocationAuthorizationDelegate
 {
-    func locationAuthorizationDenied(for locationAuthorization: LocationAuthorization) {
+    func locationAuthorizationDenied(for _: LocationAuthorization) {
         delegate?.locationFailed()
     }
 }

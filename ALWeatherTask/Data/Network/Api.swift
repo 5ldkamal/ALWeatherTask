@@ -9,20 +9,16 @@
 import CoreLocation
 import Foundation
 
-enum WeatherURLS
-{
+enum WeatherURLS {
     static let imageUrl = "http://openweathermap.org/img/w/%@.png"
 }
 
 let WEATHERPAIKEY = "5c6ddd7296886691926c98f9420327cd"
-enum Api: RequstBuilderProtocol
-{
+enum Api: RequstBuilderProtocol {
     case currentWeatherByLocation(CLLocationCoordinate2D)
-    var path: String
-    {
-        switch self
-        {
-        case .currentWeatherByLocation(let location): return "weather?lat=\(location.latitude)&lon=\(location.longitude)&appid=\(WEATHERPAIKEY)"
+    var path: String {
+        switch self {
+        case let .currentWeatherByLocation(location): return "weather?lat=\(location.latitude)&lon=\(location.longitude)&appid=\(WEATHERPAIKEY)"
         }
     }
 }

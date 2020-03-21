@@ -18,7 +18,5 @@ public enum BaseViewState: ViewState {
 // MARK: - BaseViewModel
 
 public class BaseViewModel: NSObject {
-
-    public func showError(_ error: ResultError, forHidden hidden: Bool) {
-    }
+    public func showError(_: ResultError, forHidden _: Bool) {}
 }

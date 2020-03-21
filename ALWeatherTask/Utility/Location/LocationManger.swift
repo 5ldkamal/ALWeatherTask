@@ -13,7 +13,7 @@ protocol LocationManger: class {
     var authorizationStatus: CLAuthorizationStatus { get }
     var delegate: KKLocationMangerDelegate? { get set }
     var authorizedDelegate: KKLocationMangerAuthorizationDelegate? { get set }
-    ///Methods
+    /// Methods
     func requestWhenInUseAuthorization()
     func stopUpdatingLocation()
     func startUpdatingLocation()
@@ -30,7 +30,7 @@ protocol KKLocationMangerAuthorizationDelegate: class {
 final class LocationMangerProxy: NSObject {
     weak var delegate: KKLocationMangerDelegate?
     weak var authorizedDelegate: KKLocationMangerAuthorizationDelegate?
-    
+
     let locationManger: CLLocationManager
     init(locationManger: CLLocationManager) {
         self.locationManger = locationManger
@@ -43,15 +43,15 @@ extension LocationMangerProxy: LocationManger {
     var authorizationStatus: CLAuthorizationStatus {
         return CLLocationManager.authorizationStatus()
     }
-    
+
     func requestWhenInUseAuthorization() {
         locationManger.requestWhenInUseAuthorization()
     }
-    
+
     func stopUpdatingLocation() {
         locationManger.stopUpdatingLocation()
     }
-    
+
     func startUpdatingLocation() {
         locationManger.startUpdatingLocation()
     }
@@ -59,14 +59,14 @@ extension LocationMangerProxy: LocationManger {
 
 extension LocationMangerProxy: CLLocationManagerDelegate
 {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         delegate?.locationManager(self, didUpdateLocations: locations)
     }
 }
 
 extension LocationMangerProxy
 {
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    func locationManager(_: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         authorizedDelegate?.locationManager(self, didChangeAuthorization: status)
     }
 }

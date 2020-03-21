@@ -19,12 +19,12 @@ public extension GenericState {
         switch self {
         case .idle:
             return GenericViewState<V, R>.loading(nil)
-        case .loading(let data):
+        case let .loading(data):
             return GenericViewState<V, R>.loading(data.map(dataTransform))
-        case .loaded(let data):
+        case let .loaded(data):
             let viewData = dataTransform(data)
             return isEmpty(viewData) ? GenericViewState<V, R>.emptyCase : GenericViewState<V, R>.loaded(viewData)
-        case .error(let error, let data):
+        case let .error(error, data):
             return GenericViewState<V, R>.error(errorTransform(error), data.map(dataTransform))
         }
     }
@@ -33,12 +33,12 @@ public extension GenericState {
         switch self {
         case .idle:
             return GenericViewState2<V>.loading(nil)
-        case .loading(let data):
+        case let .loading(data):
             return GenericViewState2<V>.loading(data.map(dataTransform))
-        case .loaded(let data):
+        case let .loaded(data):
             let viewData = dataTransform(data)
             return isEmpty(viewData) ? GenericViewState2<V>.emptyCase : GenericViewState2<V>.loaded(viewData)
-        case .error(_, let data):
+        case let .error(_, data):
             return GenericViewState2<V>.error(data.map(dataTransform))
         }
     }

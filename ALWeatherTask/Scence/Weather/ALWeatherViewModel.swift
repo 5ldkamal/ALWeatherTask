@@ -70,7 +70,7 @@ extension ALWeatherViewModel: WeatherRepoOutPutProtocol {
         repo.saveWeather(value)
     }
 
-    func savedWeather(_ weather: ALWeatherModel) {
+    func savedWeather(_: ALWeatherModel) {
         isReloaded.value = true
         isSaved.value = State(messge: "Saved Successfully", state: true)
     }
@@ -84,7 +84,7 @@ extension ALWeatherViewModel: BLocationOutRepoDelegate {
     }
 
     func locationFailed() {
-        self.showError(ResultError.location("Location Denied"), forHidden: false)
+        showError(ResultError.location("Location Denied"), forHidden: false)
     }
 }
 

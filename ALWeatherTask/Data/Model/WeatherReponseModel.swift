@@ -9,6 +9,7 @@
 import Foundation
 
 // MARK: - WeatherReponseModel
+
 public struct WeatherReponseModel: Codable {
     public let coord: Coord?
     public let weather: [Weather]?
@@ -39,6 +40,7 @@ public struct WeatherReponseModel: Codable {
 }
 
 // MARK: - Clouds
+
 public struct Clouds: Codable {
     public let all: Int?
 
@@ -48,6 +50,7 @@ public struct Clouds: Codable {
 }
 
 // MARK: - Coord
+
 public struct Coord: Codable {
     public let lon, lat: Double?
 
@@ -58,6 +61,7 @@ public struct Coord: Codable {
 }
 
 // MARK: - Main
+
 public struct Main: Codable {
     public let temp, feelsLike, tempMin, tempMax: Double?
     public let pressure, humidity, seaLevel, grndLevel: Int?
@@ -85,6 +89,7 @@ public struct Main: Codable {
 }
 
 // MARK: - Sys
+
 public struct Sys: Codable {
     public let country: String?
     public let sunrise, sunset: Int?
@@ -97,6 +102,7 @@ public struct Sys: Codable {
 }
 
 // MARK: - Weather
+
 public struct Weather: Codable {
     public let id: Int?
     public let main, weatherDescription, icon: String?
@@ -116,6 +122,7 @@ public struct Weather: Codable {
 }
 
 // MARK: - Wind
+
 public struct Wind: Codable {
     public let speed: Double?
     public let deg: Int?

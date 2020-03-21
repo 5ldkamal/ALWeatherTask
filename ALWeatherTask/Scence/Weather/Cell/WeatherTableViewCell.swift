@@ -26,7 +26,7 @@ final class WeatherTableViewCell: UITableViewCell {
         }
     }
 
-    private func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+    private func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
 

@@ -54,9 +54,7 @@ public extension StatefulView where Self: UIView {
 
 // Stateful view wrapper used to make Swift type system help us
 // to match the State between a view and their viewModel.
-public class AnyStatefulView<T: ViewState>: StatefulView
-
-{
+public class AnyStatefulView<T: ViewState>: StatefulView {
     private let _render: (T) -> Void
     private let _logDescription: () -> String
     private let _renderPolicy: () -> RenderPolicy
@@ -105,7 +103,7 @@ extension AnyStatefulView: Hashable {
         return identifier.hashValue
     }
 
-    public static func ==(lhs: AnyStatefulView, rhs: AnyStatefulView) -> Bool {
+    public static func == (lhs: AnyStatefulView, rhs: AnyStatefulView) -> Bool {
         return lhs.identifier == rhs.identifier
     }
 }

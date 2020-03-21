@@ -26,17 +26,17 @@ extension NSManagedObjectContext: NSManagedObjectContextProtocol {
     }
 
     ///
-    public func allEntities<T>(withType type: T.Type, predicate: NSPredicate?) throws -> [T] where T: NSManagedObject {
+    public func allEntities<T>(withType _: T.Type, predicate: NSPredicate?) throws -> [T] where T: NSManagedObject {
         let entityName = T.description()
         let requst = NSFetchRequest<T>.init(entityName: entityName)
         requst.predicate = predicate
 
-        let results = try self.fetch(requst)
+        let results = try fetch(requst)
         return results
     }
 
     ///
-    public func addEntity<T>(withType type: T.Type) -> T? where T: NSManagedObject {
+    public func addEntity<T>(withType _: T.Type) -> T? where T: NSManagedObject {
         let entityName = T.description()
         guard let entity = NSEntityDescription.entity(forEntityName: entityName, in: self) else {
             return nil

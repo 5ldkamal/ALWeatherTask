@@ -11,18 +11,18 @@ import UIKit
 public protocol Naviagator: class, PresentProtocol, NavigationProtocol {
     associatedtype Destination
     associatedtype Factory
-    
+
     // MARK: - Properities
-    
+
     var navigationViewController: UINavigationController? { get set }
     var currentViewController: UIViewController? { get set }
-    
+
     // MARK: - Method
-    
+
     func prepareForTransition(_ destination: Destination)
-    
+
     func trigger(destaintion: Destination)
-    
+
     func setRoot(_ window: UIWindow)
 }
 
@@ -32,7 +32,7 @@ extension Naviagator {
     public func trigger(destaintion: Destination) {
         prepareForTransition(destaintion)
     }
-    
+
     public func setRoot(_ window: UIWindow) {
         window.rootViewController = navigationViewController
     }
@@ -43,11 +43,11 @@ extension Naviagator {
         navigationViewController?.pushViewController(presented, animated: animated)
         currentViewController = presented
     }
-    
+
     public func pop(animated: Bool) {
         navigationViewController?.popViewController(animated: animated)
     }
-    
+
     public func popToIndex(_ index: Int, animated: Bool) {
         guard
             let viewControllers = navigationViewController?.viewControllers,
@@ -57,8 +57,8 @@ extension Naviagator {
         navigationViewController?.popToViewController(viewController, animated: animated)
         currentViewController = viewController
     }
-    
-    public func popToPresented(_ presented: Presentable, animated: Bool) {
+
+    public func popToPresented(_: Presentable, animated _: Bool) {
         guard
             let viewControllers = navigationViewController?.viewControllers,
             let viewController = viewControllers.first(where: {
@@ -68,7 +68,7 @@ extension Naviagator {
         navigationViewController?.popToViewController(viewController, animated: true)
         currentViewController = viewController
     }
-    
+
     public func setRoot(_ presented: Presentable) {
         navigationViewController?.viewControllers = [presented]
     }
@@ -76,11 +76,11 @@ extension Naviagator {
 
 extension Naviagator
 {
-    public func present(_ presented: Presentable, animated: Bool, complation: @escaping () -> ()) {
+    public func present(_ presented: Presentable, animated: Bool, complation: @escaping () -> Void) {
         currentViewController?.present(presented, animated: animated, completion: complation)
     }
-    
-    public func dismiss(animated: Bool, complation: @escaping () -> ()) {
+
+    public func dismiss(animated: Bool, complation: @escaping () -> Void) {
         let presentingViewController = currentViewController?.presentingViewController
         currentViewController?.dismiss(animated: animated, completion: complation)
         currentViewController = presentingViewController
@@ -88,18 +88,18 @@ extension Naviagator
 }
 
 public protocol PresentProtocol {
-    func present(_ presented: Presentable, animated: Bool, complation: @escaping () -> ())
-    func dismiss(animated: Bool, complation: @escaping () -> ())
+    func present(_ presented: Presentable, animated: Bool, complation: @escaping () -> Void)
+    func dismiss(animated: Bool, complation: @escaping () -> Void)
 }
 
 public protocol NavigationProtocol {
     func push(_ presented: Presentable, animated: Bool)
-    
+
     func pop(animated: Bool)
-    
+
     func popToIndex(_ index: Int, animated: Bool)
-    
+
     func popToPresented(_ presented: Presentable, animated: Bool)
-    
+
     func setRoot(_ presented: Presentable)
 }

@@ -12,13 +12,12 @@ public typealias Parmaters = [String: Any]
 public typealias Headers = [String: String]
 
 /// url requst use to send requst
-public protocol URLRequstProtocol
-{
+public protocol URLRequstProtocol {
     var urlRequst: URLRequest { get }
 }
-///Requst Builder
-public protocol RequstBuilderProtocol: URLRequstProtocol, ResponseProtocol
-{
+
+/// Requst Builder
+public protocol RequstBuilderProtocol: URLRequstProtocol, ResponseProtocol {
     /// Base Url
     var baseUrl: String { get }
     /// Path
@@ -33,8 +32,7 @@ public protocol RequstBuilderProtocol: URLRequstProtocol, ResponseProtocol
 
 extension RequstBuilderProtocol
 {
-    public var urlRequst: URLRequest
-    {
+    public var urlRequst: URLRequest {
         print(URL(string: baseUrl + path)!)
         var request = URLRequest(url: URL(string: baseUrl + path)!)
         request.httpMethod = httpMethod.rawValue

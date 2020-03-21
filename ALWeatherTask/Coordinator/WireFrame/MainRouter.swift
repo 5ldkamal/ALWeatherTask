@@ -18,8 +18,8 @@ final class MainRouter: BaseCoordinator<MainDestinationRouter, MainFactoryProtoc
     override init(window: UIWindow?) {
         self.window = window
         super.init(window: window)
-        self.navigationViewController = UIStoryboard.instance(.Main).instantiateViewController(identifier: "MainNav")
-        self.window?.rootViewController = self.navigationViewController
+        navigationViewController = UIStoryboard.instance(.Main).instantiateViewController(identifier: "MainNav")
+        self.window?.rootViewController = navigationViewController
     }
 
     override func factory() -> MainFactoryProtocol? {
@@ -29,7 +29,7 @@ final class MainRouter: BaseCoordinator<MainDestinationRouter, MainFactoryProtoc
     public override func prepareForTransition(_ destination: MainDestinationRouter) {
         switch destination {
         case .main: setRoot(factory()!.main())
-        case .Details(let model): push(factory()!.details(model), animated: true)
+        case let .Details(model): push(factory()!.details(model), animated: true)
         }
     }
 }
