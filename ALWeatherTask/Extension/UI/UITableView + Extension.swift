@@ -8,13 +8,13 @@
 
 import Foundation
 import UIKit
-extension UITableView{
-    
-    func dequeue<T : UITableViewCell>(indexPath : IndexPath , type : T.Type) -> T{
-        return self.dequeueReusableCell(withIdentifier: String(describing:type), for: indexPath) as! T
+extension UITableView {
+    func dequeue<T: UITableViewCell>(indexPath: IndexPath, type: T.Type) -> T {
+        return dequeueReusableCell(withIdentifier: String(describing: type), for: indexPath) as! T
     }
 }
-//extension UITableView: StatusController {
+
+// extension UITableView: StatusController {
 //    public var statusView: StatusView? {
 //        return DefaultStatusView()
 //    }
@@ -23,5 +23,4 @@ extension UITableView{
 //        self.view.backgroundColor = .white
 //        self.hideStatus()
 //    }
-//}
-
+// }

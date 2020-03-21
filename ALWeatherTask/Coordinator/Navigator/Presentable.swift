@@ -8,19 +8,15 @@
 
 import UIKit
 
-public protocol Presentable where Self: UIViewController
-{
+public protocol Presentable where Self: UIViewController {
     var presented: UIViewController { get }
 }
 
-extension Presentable
-{
+extension Presentable {
     public var presented: UIViewController { return self }
 }
 
 ///
-extension UIViewController: Presentable
-{
+extension UIViewController: Presentable {
     public var presented: UIViewController { return self }
 }
-

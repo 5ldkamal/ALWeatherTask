@@ -66,9 +66,8 @@ private extension ALWeatherController {
 
 // MARK: - Actions
 
-extension ALWeatherController
-{
-    @IBAction func saveAction(_ sender: UIButton) {
+extension ALWeatherController {
+    @IBAction func saveAction(_: UIButton) {
         viewModel?.save()
     }
 }
@@ -87,19 +86,19 @@ extension ALWeatherController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in _: UITableView) -> Int {
         return viewModel?.numberOfSections ?? 0
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.numberOfItems(section: section) ?? 0
     }
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_: UITableView, titleForHeaderInSection section: Int) -> String? {
         return viewModel?.titleForSection(section: section)
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel?.selectItemForIndex(indexPath)
     }
 }

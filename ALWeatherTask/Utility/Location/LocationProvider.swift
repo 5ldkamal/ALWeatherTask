@@ -43,12 +43,11 @@ final class KKDefaultLocationProvider: NSObject {
     }
 }
 
-extension KKDefaultLocationProvider: LocationProvider
-{
+extension KKDefaultLocationProvider: LocationProvider {
     func getLocation() {
         locationAuthorization.askForAuthorization()
         NotifyForAuthorizatin()
-        self.locationManger.startUpdatingLocation()
+        locationManger.startUpdatingLocation()
     }
 
     private func NotifyForAuthorizatin() {
@@ -58,9 +57,8 @@ extension KKDefaultLocationProvider: LocationProvider
     }
 }
 
-extension KKDefaultLocationProvider: KKLocationMangerDelegate
-{
-    func locationManager(_ manager: LocationManger, didUpdateLocations locations: [CLLocation]) {
+extension KKDefaultLocationProvider: KKLocationMangerDelegate {
+    func locationManager(_: LocationManger, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else {
             return
         }

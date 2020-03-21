@@ -29,6 +29,7 @@ open class Store<State: StoreState> {
     public func write(_ transaction: () -> Void) {
         stateTransactionQueue.sync(execute: transaction)
     }
+
     public func writeOnMainThread(_ transaction: @escaping () -> Void) {
         DispatchQueue.main.async(execute: transaction)
     }
@@ -82,14 +83,14 @@ open class Store<State: StoreState> {
 
     func undo() {
         debugLog("[\(storeLogDescription())] Undo state")
-        guard let undoRedoState = self.undoStack.popLast() else { return }
+        guard let undoRedoState = undoStack.popLast() else { return }
         applyUndoRedoState(undoRedoState)
         redoStack.append(undoRedoState.flip())
     }
 
     func redo() {
         debugLog("[\(storeLogDescription())] Redo state")
-        guard let undoRedoState = self.redoStack.popLast() else { return }
+        guard let undoRedoState = redoStack.popLast() else { return }
         applyUndoRedoState(undoRedoState)
         undoStack.append(undoRedoState.flip())
     }

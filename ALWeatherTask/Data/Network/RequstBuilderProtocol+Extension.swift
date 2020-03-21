@@ -8,25 +8,20 @@
 
 import Foundation
 
-extension RequstBuilderProtocol
-{
-    var baseUrl: String
-    {
+extension RequstBuilderProtocol {
+    var baseUrl: String {
         return "http://api.openweathermap.org/data/2.5/"
     }
 
-    var paramter: Parmaters?
-    {
+    var paramter: Parmaters? {
         return nil
     }
 
-    var httpMethod: KKHTTPMethod
-    {
+    var httpMethod: KKHTTPMethod {
         return .get
     }
 
-    var headers: Headers
-    {
+    var headers: Headers {
         return [:]
     }
 }

@@ -8,10 +8,9 @@
 
 import Foundation
 
-public typealias ResponseResult<T> = (ResultStatuts<T>) -> ()
+public typealias ResponseResult<T> = (ResultStatuts<T>) -> Void
 
-public enum ResultStatuts<T>
-{
+public enum ResultStatuts<T> {
     case sucess(T)
     case failure(ResultError)
 }

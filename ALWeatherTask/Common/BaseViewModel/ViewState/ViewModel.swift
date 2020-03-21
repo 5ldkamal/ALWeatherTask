@@ -35,7 +35,7 @@ open class ViewModel<State: ViewState>: Store<State> {
         switch view.renderPolicy {
         case .possible:
             handlePossibleRender(newState: newState, oldState: oldState, view: view, force: force)
-        case .notPossible(let renderError):
+        case let .notPossible(renderError):
             handleNotPossibleRender(error: renderError, view: view)
         }
     }
@@ -43,7 +43,7 @@ open class ViewModel<State: ViewState>: Store<State> {
     private func handlePossibleRender(newState: State, oldState: State, view: AnyStatefulView<State>, force: Bool) {
         let viewLogDescription = view.logDescription
 
-        if !force && newState == oldState {
+        if !force, newState == oldState {
             debugLog("[\(viewLogDescription)] Skip rendering with the same state: \(newState.logDescription)")
             return
         }

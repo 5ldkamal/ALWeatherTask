@@ -12,9 +12,9 @@ final class WeatherRemoteRepo: NSObject, WeatherRemoteGetway {
     func fetchWeather(api: RequstBuilderProtocol, completionHandler: @escaping (ResultStatuts<[ALWeatherModel]>) -> Void) {
         api.requst(model: WeatherReponseModel.self) { result in
             switch result {
-            case .sucess(let model):
+            case let .sucess(model):
                 completionHandler(ResultStatuts.sucess([ALWeatherModel(model)]))
-            case .failure(let error):
+            case let .failure(error):
                 completionHandler(ResultStatuts.failure(error))
             }
         }

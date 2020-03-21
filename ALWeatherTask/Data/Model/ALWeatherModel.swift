@@ -48,9 +48,9 @@ public struct ALWweather {
         main = response.weather?.first?.main ?? ""
         weatherDescription = response.weather?.first?.weatherDescription ?? ""
         icon = String(format: WeatherURLS.imageUrl, response.weather?.first?.icon ?? "")
-        self.sunrise = (response.sys?.sunrise ?? 0).toTimeStr
-        self.sunset = (response.sys?.sunset ?? 0).toTimeStr
-        self.wind = (response.wind?.speed ?? 0.0).toString
+        sunrise = (response.sys?.sunrise ?? 0).toTimeStr
+        sunset = (response.sys?.sunset ?? 0).toTimeStr
+        wind = (response.wind?.speed ?? 0.0).toString
     }
 
     init(main: String?, weatherDescription: String?, icon: String?, date: String?, temp: String?, feelsLike: String?, tempMin: String?, tempMax: String?, pressure: String?, humidity: String?, seaLevel: String?, grndLevel: String?, sunrise: String?, sunset: String?, wind: String?) {
@@ -90,6 +90,6 @@ public struct ALWArea {
         self.city = city
         self.country = country
         self.timezone = timezone
-        self.location = CLLocationCoordinate2D(latitude: lat, longitude: log)
+        location = CLLocationCoordinate2D(latitude: lat, longitude: log)
     }
 }

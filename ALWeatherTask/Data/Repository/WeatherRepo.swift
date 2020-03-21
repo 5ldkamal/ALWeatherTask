@@ -40,8 +40,8 @@ final class WeatherRepo: NSObject, WeatherRepoProtocol {
         remote.fetchWeather(api: Api.currentWeatherByLocation(location)) { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .sucess(let weather): self.delegate?.currentWeaather(weather)
-            case .failure(let errro): self.delegate?.showError(errro, forHidden: true)
+            case let .sucess(weather): self.delegate?.currentWeaather(weather)
+            case let .failure(errro): self.delegate?.showError(errro, forHidden: true)
             }
         }
     }
@@ -51,8 +51,8 @@ final class WeatherRepo: NSObject, WeatherRepoProtocol {
         local.fetchWeather { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .sucess(let weather): self.delegate?.presvoisWeather(weather)
-            case .failure(let errro): self.delegate?.showError(errro, forHidden: true)
+            case let .sucess(weather): self.delegate?.presvoisWeather(weather)
+            case let .failure(errro): self.delegate?.showError(errro, forHidden: true)
             }
         }
     }
@@ -62,8 +62,8 @@ final class WeatherRepo: NSObject, WeatherRepoProtocol {
         local.add(weather) { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .sucess(let weather): self.delegate?.savedWeather(weather)
-            case .failure(let errro): self.delegate?.showError(errro, forHidden: false)
+            case let .sucess(weather): self.delegate?.savedWeather(weather)
+            case let .failure(errro): self.delegate?.showError(errro, forHidden: false)
             }
         }
     }

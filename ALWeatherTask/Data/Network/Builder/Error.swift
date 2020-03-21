@@ -40,19 +40,19 @@ public enum ResultError {
     case serverError(ServerError)
 
     case dataBase(String)
-    
+
     case location(String)
 
     public var describtionError: String {
         switch self {
-        case .serverError(let error):
+        case let .serverError(error):
             return error.error
         case .noInternt:
             return NSLocalizedString("No Internet connection.Make sure that Wi-Fi or mobile data is turned on that try again", comment: "")
-        case .dataBase(let error):
+        case let .dataBase(error):
             return error
-            
-        case .location(let error):
+
+        case let .location(error):
             return error
         default:
             return ""
@@ -83,7 +83,7 @@ public enum ServerError {
 
     public var error: String {
         switch self {
-        case .error(let errorDescription):
+        case let .error(errorDescription):
             return errorDescription ?? ""
 
         case .badUrl:

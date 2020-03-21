@@ -44,7 +44,7 @@ extension ResponseHandler: HandleResponseProtocol {
                 completion(ResultStatuts<T>.failure(ResultError.cannotDecodeData))
             }
 
-        case .serverError(let serverError): completion(ResultStatuts<T>.failure(serverError))
+        case let .serverError(serverError): completion(ResultStatuts<T>.failure(serverError))
         }
     }
 }

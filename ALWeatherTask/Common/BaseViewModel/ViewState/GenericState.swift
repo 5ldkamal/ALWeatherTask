@@ -10,20 +10,20 @@ public extension GenericState {
         switch self {
         case .idle:
             return nil
-        case .loaded(let data):
+        case let .loaded(data):
             return data
-        case .loading(let data):
+        case let .loading(data):
             return data
-        case .error(_, let data):
+        case let .error(_, data):
             return data
         }
     }
-    
+
     var error: E? {
         switch self {
         case .idle, .loaded, .loading:
             return nil
-        case .error(let error, _):
+        case let .error(error, _):
             return error
         }
     }
@@ -41,11 +41,11 @@ public extension GenericState {
         switch self {
         case .idle:
             return GenericState<V, E>.idle
-        case .loading(let data):
+        case let .loading(data):
             return GenericState<V, E>.loading(data.map(block))
-        case .loaded(let data):
+        case let .loaded(data):
             return GenericState<V, E>.loaded(block(data))
-        case .error(let error, let data):
+        case let .error(error, data):
             return GenericState<V, E>.error(error, data.map(block))
         }
     }
@@ -54,11 +54,11 @@ public extension GenericState {
         switch self {
         case .idle:
             return GenericState<D, R>.idle
-        case .loaded(let data):
+        case let .loaded(data):
             return GenericState<D, R>.loaded(data)
-        case .loading(let data):
+        case let .loading(data):
             return GenericState<D, R>.loading(data)
-        case .error(let error, let data):
+        case let .error(error, data):
             return GenericState<D, R>.error(block(error), data)
         }
     }
